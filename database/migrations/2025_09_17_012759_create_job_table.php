@@ -11,14 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('works', function (Blueprint $table) {
-            $table->bigIncrements('work_id');
+        Schema::create('job', function (Blueprint $table) {
+            $table->bigIncrements('job_id');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')
                         ->references('user_id')
                         ->on('users')
                         ->nullOnDelete();
             $table->string('position', 50)->nullable();
+            $table->string('occupation', 50)->nullable();
+            $table->string('occupation_status', 50)->nullable();
+            $table->string('course_alignment', 50)->nullable();
             $table->string('company_name')->nullable();
             $table->string('description')->nullable();
             $table->decimal('salary', 10,2)->nullable();
@@ -33,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('works');
+        Schema::dropIfExists('job');
     }
 };

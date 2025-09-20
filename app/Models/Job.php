@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Work extends Model
+class Job extends Model
 {
-    protected $primaryKey = 'work_id';
+    protected $primaryKey = 'job_id';
     protected $keyType = 'int';
     public $incrementing = true;
 
@@ -14,7 +14,9 @@ class Work extends Model
     protected $fillable = [
         'position',
         'company_name',
-        'description',
+        'occupation',
+        'occupation_status',
+        'occupation_alignment',
         'salary',
         'start_date',
         'end_date'
