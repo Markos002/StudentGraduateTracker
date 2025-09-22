@@ -1,0 +1,25 @@
+.gradient-bg {
+    background: linear-gradient(135deg, #fef7f0 0%, #fdf2f8 100%);
+}
+
+.coral-gradient {
+    background: linear-gradient(135deg,  #f97316 100%);
+}
+
+.feature-card {
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .decorative-circle2 {
+            position: absolute;
+            border-radius: 0.5rem;
+        }
