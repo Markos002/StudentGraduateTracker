@@ -30,7 +30,7 @@
     {{-- Row 3: Contact Links --}}
     <div class="hidden lg:flex items-center justify-center border border-black rounded-xl px-5">
         @foreach ($contacts as $contact)
-            <a id="#{{ $contact['ids'] }}" class="text-black">
+            <a href="#{{ $contact['ids'] }}" class="text-black">
                 {{ $contact['label'] }}
             </a>
         @endforeach
@@ -57,9 +57,9 @@
                 </a>
             @endforeach
             @foreach ($contacts as $contact)
-            <a id="#{{ $contact['ids'] }}" class="text-black text-xl border border-black rounded-xl px-5 py-2">
-                {{ $contact['label'] }}
-            </a>
+                <a id="#{{ $contact['ids'] }}" class="text-black text-xl border border-black rounded-xl px-5 py-2">
+                    {{ $contact['label'] }}
+                </a>
             @endforeach
         </div>
 

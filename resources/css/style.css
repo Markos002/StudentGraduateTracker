@@ -1,3 +1,6 @@
+html{
+    scroll-behavior: smooth;
+}
 .gradient-bg {
     background: linear-gradient(135deg, #fef7f0 0%, #fdf2f8 100%);
 }
@@ -15,11 +18,13 @@
 }
 
 .decorative-circle {
-            position: absolute;
-            border-radius: 50%;
-        }
+    position: absolute;
+    border-radius: 50%;
+}
 
-        .decorative-circle2 {
-            position: absolute;
-            border-radius: 0.5rem;
-        }
+.decorative-circle2 {
+    position: absolute;
+    border-radius: 0.5rem;
+}
+
+

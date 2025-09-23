@@ -8,7 +8,7 @@
     @csrf
     <!-- Email Address -->
     <div class=" border border-gray-500 bg-white rounded-md py-1.5" >
-        <x-forms.text-input
+        <x-inputs.auth-input
         type="email"
         id="email"
         label="Email Address"
@@ -19,7 +19,7 @@
     </div>
     <!-- Password -->
     <div class="mt-4 border border-gray-500 bg-white rounded-md py-1.5">
-        <x-forms.text-input
+        <x-inputs.auth-input
         type="password"
         id="password"
         label="Password"
