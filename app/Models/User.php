@@ -29,11 +29,18 @@ class User extends Authenticatable
         'phone',
         'password',
         'course',
+        'tor_number',
         'year_graduate',
         'status',
         'role'
     ];
 
+
+    public function job()
+    {
+
+        return $this->hasOne(Job::class, 'user_id');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -49,6 +56,7 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
+  
     protected function casts(): array
     {
         return [

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('email', 50)->nullable();
             $table->string('phone')->nullable();
             $table->string('password');
+            $table->string('tor_number');
             $table->string('course', 50)->nullable();
             $table->string('year_graduate', 50)->nullable();
             $table->enum('status', ['active', 'inactive', 'pending', 'suspended', 'deleted', 'none' ])->nullable();

@@ -2,13 +2,23 @@
 
 namespace App\Providers;
 
+use App\Interfaces\Repository\JobRepositoryInterface;
 use App\Interfaces\Repository\ListDataRepositoryInterface;
+use App\Interfaces\Repository\ReportsRepositoryInterface;
+use App\Interfaces\Repository\StudentRegistryRepositoryInterface;
 use App\Interfaces\Repository\UserRepositoryInterface;
 use App\Interfaces\Services\Auth\RegisterServiceInterface;
+use App\Interfaces\Services\ReportsServiceInterface;
+use App\Interfaces\Services\StudentRegistryServiceInterface;
 use App\Interfaces\Services\UserServiceInterface;
+use App\Repository\JobRepository;
 use App\Repository\ListDataRepository;
+use App\Repository\ReportsRepository;
+use App\Repository\StudentRegistryRepository;
 use App\Repository\UserRepository;
 use App\Services\Auth\RegisterService;
+use App\Services\ReportsService;
+use App\Services\StudentRegistryService;
 use App\Services\UserService;
 use Illuminate\Support\ServiceProvider;
 
@@ -22,10 +32,15 @@ class DependencyInjection extends ServiceProvider
         // Repositories
         $this->app->bind(ListDataRepositoryInterface::class, ListDataRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(JobRepositoryInterface::class, JobRepository::class);
+        $this->app->bind(ReportsRepositoryInterface::class, ReportsRepository::class);
+        $this->app->bind(StudentRegistryRepositoryInterface::class, StudentRegistryRepository::class);
 
         // Services
         $this->app->bind(RegisterServiceInterface::class, RegisterService::class);
         $this->app->bind(UserServiceInterface::class, UserService::class);
+        $this->app->bind(ReportsServiceInterface::class, ReportsService::class);
+        $this->app->bind(StudentRegistryServiceInterface::class, StudentRegistryService::class);
     }
 
     /**

@@ -21,4 +21,9 @@ class Job extends Model
         'start_date',
         'end_date'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

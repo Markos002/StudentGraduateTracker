@@ -52,6 +52,7 @@ class RegisterUserConfirmController extends Controller
             'student_id' => 'nullable|min:7',
             'address' => 'nullable|string',
             'email' => 'nullable|string',
+            'tor_number' => 'nullable|string',
             'phone' => 'nullable|regex:/^09\d{9}$/',
             'password'  => ['required', 'confirmed', Rules\Password::min(8)->numbers()->symbols(),],
         ]);
@@ -63,6 +64,7 @@ class RegisterUserConfirmController extends Controller
             'student_id' => $request->student_id,
             'address' => $request->address,
             'email' => $request->email,
+            'tor_number' => $request->tor_number,
             'phone' => $request->phone,
             'status' => 'active',
             'role' => 'User',
