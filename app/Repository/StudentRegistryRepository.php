@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class StudentRegistryRepository implements StudentRegistryRepositoryInterface
 {
 
-
+    //Student List
     public function getStudentByYearAndCourse($year, $course)
     {
          
@@ -22,7 +22,7 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
                   'year_graduate'
                  )
                 ->where('course', $course)
-                ->whereYear('created_at', $year)
+                ->where('year_graduate', $year)
                 ->get();
     }
 
@@ -37,7 +37,7 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
 
                 )
                 ->where('course', $course)
-                ->whereYear('created_at', $year)
+                ->where('graduate_year', $year)
                 ->get();
     }
 }

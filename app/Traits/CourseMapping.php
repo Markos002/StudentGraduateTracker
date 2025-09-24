@@ -6,7 +6,7 @@ use InvalidArgumentException;
 trait CourseMapping
 {
 
-    public function coureMapping($course)
+    public function courseMapping($course)
     {
 
        return match($course){
