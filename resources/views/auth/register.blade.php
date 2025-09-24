@@ -11,6 +11,7 @@
         .slide {
             width: 50%;
             flex-shrink: 0;
+            padding: 1rem;
         }
         .slide-wrapper.step-2 {
             transform: translateX(-50%);
@@ -20,37 +21,35 @@
     <div class="slide-container">
         <div class="slide-wrapper" id="slideWrapper">
             <!-- Step 1: Student ID -->
-            <div class="slide">
-                <form id="step1Form">
-                    <div>
-                        <x-input-label for="student_id" :value="__('Student ID')" />
-                        <x-text-input 
-                            id="student_id" 
-                            class="block mt-1 w-full" 
-                            type="text" 
-                            name="student_id" 
-                            :value="old('student_id')" 
-                            required 
-                            autofocus 
-                            autocomplete="student_id" 
-                            pattern="^\d{7}$" 
-                            title="Student ID must be exactly 7 digits"
-                            maxlength="7"
-                        />
-                        <div id="student_id_error" class="mt-2 text-sm text-red-600 hidden">
-                            Student ID must be exactly 8 digits
-                        </div>
+            <div class="slide " >
+                <form id="step1Form" >
+                    <div class="flex justify-between place-content-center items-center">
+                        <h2 class="text-md font-bold">Enter Student ID</h2>
                     </div>
-                    
-                    <div class="flex items-center justify-end mt-4">
-                        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                            {{ __('Already registered?') }}
-                        </a>
+                    <p class="mt-2 text-sm ">Please input your Student ID number to confirm your status as a 4th year graduate. Ensures that the ID entered matches your official school records.</p>
 
-                        <x-primary-button type="button" onclick="nextStep()" class="ms-4">
-                            {{ __('Next') }}
-                        </x-primary-button>
+                    <div class="mt-4 flex justify-end mb-4">
+                        <x-inputs.standard-input id="student_id" 
+                        type="text" 
+                        label="Student ID" 
+                        pattern="^\d{7}$" 
+                        title="Student ID must be exactly 7 digits"
+                        class="w-full border border-gray-500"
+                        maxlength="7"
+                        required 
+                        autofocus 
+                        autocomplete="student_id"  />
                     </div>
+                    <div id="student_id_error" class="mt-2 text-sm text-red-600 hidden">
+                        Student ID must be exactly 7 digits
+                    </div>
+
+                    <x-buttons.primary-button type="button" onclick="nextStep()" class=" my-2 py-3 w-full place-content-center">
+                        {{ __('Next') }}
+                    </x-buttons.primary-button>
+                    <a class="py-4 underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none " href="/">
+                        {{ __('Already registered?') }}
+                    </a>
                 </form>
             </div>
 
@@ -58,43 +57,50 @@
             <div class="slide">
                 <form id="step2Form" method="POST" action="{{ route('register') }}">
                     @csrf
-                    
+                    <div class="flex justify-between place-content-center items-center">
+                        <h2 class="text-md font-bold">TOR Number Verification</h2>
+                    </div>
+                    <div class="space-y-5 text-black text-sm my-5">
+                        <p class="mt-2  ">Please input your TOR Number to confirm your status as a 4th year graduate. Ensures that the TOR Number entered matches your official school records.</p>
+                        <p>NOTE: <i>Request it first in registrar Office</i></p>
+                    </div>
                     <div>
-                        <x-input-label for="tor_number" :value="__('TOR Number')" />
-                        <x-text-input 
-                            id="tor_number" 
-                            class="block mt-1 w-full" 
-                            type="text" 
-                            name="tor_number" 
-                            :value="old('tor_number')" 
-                            required 
-                            autocomplete="tor_number"
-                        />
+                        <x-inputs.standard-input 
+                        id="tor_number" 
+                        name="tor_number"
+                        type="text" 
+                        :value="old('tor_number')" 
+                        label="TOR Number" 
+                        class="w-full border border-gray-500"
+                        maxlength="7"
+                        required 
+                        autofocus 
+                        autocomplete="tor_number"  />
                         <x-input-error :messages="$errors->get('tor_number')" class="mt-2" />
                     </div>
                     
-                    <div class="flex items-center justify-between mt-4">
-                        <button type="button" onclick="prevStep()" class="inline-flex items-center px-4 py-2 bg-gray-300 border border-transparent rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest hover:bg-gray-400 focus:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                    <div class="flex items-center justify-between mt-4 py-2">
+                        <button type="button" onclick="prevStep()" class="inline-flex items-center px-4 py-3 bg-gray-300 border border-transparent rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest hover:bg-gray-400 focus:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
                             {{ __('Back') }}
                         </button>
 
-                        <x-primary-button class="ms-4">
+                        <x-buttons.primary-button class="ms-4 py-3">
                             {{ __('Register') }}
-                        </x-primary-button>
+                        </x-buttons.primary-button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Progress Indicator -->
+    <!-- Progress Indicator 
     <div class="flex justify-center mt-6">
         <div class="flex space-x-2">
             <div id="step1Indicator" class="w-3 h-3 bg-indigo-600 rounded-full"></div>
             <div id="step2Indicator" class="w-3 h-3 bg-gray-300 rounded-full"></div>
         </div>
     </div>
-
+    -->
     @if($errors->any())
         <script>
             document.addEventListener('DOMContentLoaded', function() {

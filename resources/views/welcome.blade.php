@@ -53,9 +53,9 @@
                                 </div>
                                 <p class="text-sm/relaxed text-black lg:text-xl">Monitor student progress with real-time insights to support academic achievement and growth.</p>
                                 <div class="flex items-center gap-4">
-                                    <x-buttons.primary-button type="button" onclick="openModal('evaluate')">Track now</x-buttons.primary-button>
-                                    <x-modals.verificationModal id="evaluate"/>
-                                    <a href="/register" class="px-6 py-2 bg-[#FF2D20] text-white rounded-md shadow-[0px_4px_34px_rgba(0,0,0,0.25)] hover:bg-[#e02a1d] focus:outline-none focus:ring focus:ring-[#FF2D20] active:bg-[#cc241a] transition duration-150 ease-in-out">Track now</a>-->
+                                    <!-- <x-buttons.primary-button type="button" onclick="openModal('evaluate')">Track now</x-buttons.primary-button>
+                                    <x-modals.verificationModal id="evaluate"/> -->
+                                    <a href="/register" class="px-6 py-2 bg-[#D06139] text-white rounded-md shadow-[0px_4px_34px_rgba(0,0,0,0.25)] hover:bg-[#e02a1d] focus:outline-none focus:ring focus:ring-[#FF2D20] active:bg-[#cc241a] transition duration-150 ease-in-out">Track now</a>
                                 </div>
                             </div>
                             <div class="lg:w-full place-content-center pb-16">
