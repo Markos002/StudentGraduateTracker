@@ -9,14 +9,15 @@
     <!-- Email Address -->
     <div class=" border border-gray-500 bg-white rounded-md py-1.5" >
         <x-inputs.auth-input
-        type="email"
-        id="email"
-        label="Email Address"
+        type="text"
+        id="student_id"
+        label="Student ID"
         required
         autofocus
         />
-        <x-input-error :messages="$errors->get('student_id')" class="mt-2" />
     </div>
+    <x-input-error :messages="$errors->get('student_id')" class="mt-2" />
+
     <!-- Password -->
     <div class="mt-4 border border-gray-500 bg-white rounded-md py-1.5">
         <x-inputs.auth-input
@@ -27,9 +28,9 @@
         required
         autofocus
         />
-    
-        <x-input-error :messages="$errors->get('password')" class="mt-2" />
     </div>
+    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+
     <!-- Remember Me -->
     <div class="flex justify-between mt-4">
         <label for="remember_me" class="inline-flex items-center">

@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-register-layout>
     <style>
         .slide-container {
             overflow: hidden;
@@ -217,4 +217,4 @@
             setRequirement(numericCheck, /^\d+$/.test(val), "Numbers only");
         });
     </script>
-</x-guest-layout>
+</x-register-layout>

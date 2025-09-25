@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-register-layout>
     <style>
         .slide-container {
             overflow: hidden;
@@ -178,4 +178,4 @@
             }
         });
     </script>
-</x-guest-layout>
+</x-register-layout>

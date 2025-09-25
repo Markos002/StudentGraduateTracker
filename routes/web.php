@@ -23,6 +23,13 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
     Route::get('alumnus', [AlumnusController::class, 'alumnus'])->name('admin.alumnus');
 });
 
+Route::prefix('student')->middleware(['auth', 'role:User'])->group(function () {
+
+});
+
+Route::get('/user', function () {
+    return view('/pages/user/dashboard');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
