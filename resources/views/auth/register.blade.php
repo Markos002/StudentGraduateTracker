@@ -23,11 +23,23 @@
             <!-- Step 1: Student ID -->
             <div class="slide " >
                 <form id="step1Form" >
+                @if(session('error'))
+                    <x-sweetAlert.error-message 
+                        title="Error" 
+                        :message="session('error')" 
+                        type="error" />
+                @endif
+
+                @if(session('success'))
+                    <x-sweetAlert.success-message 
+                        title="Success" 
+                        :message="session('success')" 
+                        type="success" />
+                @endif
                     <div class="flex justify-between place-content-center items-center">
                         <h2 class="text-md font-bold">Enter Student ID</h2>
                     </div>
                     <p class="mt-2 text-sm ">Please input your Student ID number to confirm your status as a 4th year graduate. Ensures that the ID entered matches your official school records.</p>
-
                     <div class="mt-4 flex justify-end mb-4">
                         <x-inputs.standard-input id="student_id" 
                         type="text" 
@@ -113,8 +125,7 @@
     <script>
         let currentStep = 1;
         const slideWrapper = document.getElementById('slideWrapper');
-        const step1Indicator = document.getElementById('step1Indicator');
-        const step2Indicator = document.getElementById('step2Indicator');
+
 
         function nextStep() {
             // Validate student ID
@@ -131,10 +142,6 @@
             // Move to step 2
             currentStep = 2;
             slideWrapper.classList.add('step-2');
-            step1Indicator.classList.remove('bg-indigo-600');
-            step1Indicator.classList.add('bg-gray-300');
-            step2Indicator.classList.remove('bg-gray-300');
-            step2Indicator.classList.add('bg-indigo-600');
 
             // Focus on TOR number input
             setTimeout(() => {
@@ -145,10 +152,6 @@
         function prevStep() {
             currentStep = 1;
             slideWrapper.classList.remove('step-2');
-            step2Indicator.classList.remove('bg-indigo-600');
-            step2Indicator.classList.add('bg-gray-300');
-            step1Indicator.classList.remove('bg-gray-300');
-            step1Indicator.classList.add('bg-indigo-600');
 
             // Focus on student ID input
             setTimeout(() => {

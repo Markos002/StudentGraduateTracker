@@ -4,6 +4,9 @@
     'name' => '',
     'label' => '',
     'isPassword' => false,
+    'disabled' => false,
+    'readonly' => false,
+    'value' => '',
 ])
 
 <div {{ $attributes->merge(['class' => 'relative w-full text-black bg-white']) }}>
@@ -11,16 +14,20 @@
         type="{{ $type }}"
         id="{{ $id }}"
         name="{{ $name ?: $id }}"   
-        placeholder=" " 
-        class="peer mt-0.5 w-full rounded shadow-sm sm:text-sm border-none focus:outline-none focus:ring-0 focus:border-transparent
+        @if(!empty(old($name ?: $id, $value)))
+            value="{{ old($name ?: $id, $value) }}"
+        @endif
+        @disabled($disabled)
+        @readonly($readonly)
+        class="peer mt-0.5 w-full rounded  sm:text-sm border-none focus:outline-none focus:ring-0 focus:border-transparent
         "
     />
 
     <label for="{{ $id }}"
         class="absolute left-3 top-2.5 text-gray-500 text-sm transition-all duration-200 
             peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-sm
-            peer-focus:-top-2 peer-focus:text-xs peer-focus:text-orange-600
-            peer-[:not(:placeholder-shown)]:-top-2 peer-[:not(:placeholder-shown)]:text-xs
+            peer-focus:-top-1.5 peer-focus:text-xs peer-focus:text-orange-600
+            peer-[:not(:placeholder-shown)]:-top-1.5 peer-[:not(:placeholder-shown)]:text-xs
             cursor-text">
         {{ $label }}
     </label>

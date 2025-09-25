@@ -48,9 +48,8 @@ class RegisteredUserController extends Controller
             $studentData = $this->getSession();
             $studentId = $studentData['studentId'];
 
-            return redirect()->route('register-confirm', [
-                'studentId' => $studentId,
-            ]);
+            return redirect()->route('register-confirm', ['studentId' => $studentId])
+                ->with('success', "Student ID verified. Please complete your registration.");
 
         } catch(\Exception $e) {
 
