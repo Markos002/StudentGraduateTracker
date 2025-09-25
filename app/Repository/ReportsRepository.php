@@ -35,14 +35,15 @@ class ReportsRepository implements ReportsRepositoryInterface
         $year = now()->year;
         
         return DB::table('users')
-            ->whereYear('created_at', $year)
-            ->whereIn('occupation_status', ['employed', 'unEmployed'])
-            ->groupBy('occupation_status')
-            ->selectRaw('occupation_status, count(*) as count')
+            ->join('job', 'users.user_id', '=', 'job.user_id')
+            ->whereYear('users.created_at', $year)
+            ->whereIn('job.occupation_status', ['employed', 'unEmployed'])
+            ->groupBy('job.occupation_status')
+            ->selectRaw('job.occupation_status, count(*) as count')
             ->pluck('count', 'occupation_status')
             ->toArray();
     }
-
+    
     public function getJobTrends($year, $course)
     {
         $status = 'employed';

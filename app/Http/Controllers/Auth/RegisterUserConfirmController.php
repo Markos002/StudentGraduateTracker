@@ -52,11 +52,10 @@ class RegisterUserConfirmController extends Controller
             'student_id' => 'nullable|min:7',
             'address' => 'nullable|string',
             'email' => 'nullable|string',
-            'tor_number' => 'nullable|string',
+            'tor_number' => 'string',
             'phone' => 'nullable|regex:/^09\d{9}$/',
             'password'  => ['required', 'confirmed', Rules\Password::min(8)->numbers()->symbols(),],
         ]);
-
 
         $validated = [
             'last_name'  => ucwords($request['last_name']),

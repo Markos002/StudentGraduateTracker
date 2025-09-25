@@ -1,4 +1,5 @@
 @props(['title' => '', 'message' => '', 'type' => 'info'])
+
 @if(session('success'))
     <script>
         Swal.fire({
@@ -11,8 +12,8 @@
                         <p>You have been confirmed as a 4th-year graduate student.</p>
                         <p>You are now eligible to proceed with your Registration</p>
                     </div>
-                    <x-buttons.primary-button class="place-content-center mt-4 w-full py-3 text-white rounded-lg " type="button" onclick="Swal.close()"
-                    Proceed to Registration
+                    <x-buttons.primary-button class="place-content-center mt-4 w-full py-3 text-white rounded-lg " type="button" onclick="Swal.close()">
+                        Proceed to Registration
                     </x-buttons.primary-button>
                 @endif
                 </div>

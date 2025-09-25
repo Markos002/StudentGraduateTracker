@@ -84,14 +84,15 @@
                 <form class="space-y-3" id="step2Form" method="POST" action="{{ route('register-confirm-data') }}">
                     @csrf
 
-                    <!-- Email -->
+                     <input type="hidden" name="tor_number" value="{{ old('tor_number', $studentData['torNumber'] ?? '') }}">
+                     <!-- Email -->
                     <div class="border py-1.5 border-black rounded-md">
                         <x-inputs.auth-input id="email" label="Email" type="email" name="email"
                             :value="old('email')" required />
                     </div>
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
 
-                    <!-- Phone -->
+                    <!-- Phone -->   
                     <div class="border py-1.5 border-black rounded-md">
                         <x-inputs.auth-input id="phone" label="Phone" type="text" name="phone"
                             :value="old('phone')" minlength="11" maxlength="11"
