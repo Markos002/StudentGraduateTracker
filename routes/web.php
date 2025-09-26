@@ -16,7 +16,7 @@ Route::get('/', function () {
 Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
 
     Route::get('/dashboard',[DashboardController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('/insight', [InsightController::class, 'insight'])->name('admin.insight');
+    Route::get('/insight', [InsightController::class, 'analytics'])->name('admin.insight');
     Route::get('/student', [StudentController::class, 'student'])->name('admin.student');
     Route::get('/alumnus', [AlumnusController::class, 'alumnus'])->name('admin.alumnus');
 });
