@@ -23,8 +23,9 @@ class ReportsRepository implements ReportsRepositoryInterface
     public function getTotalGraduates()
     { 
         $year = now()->year;
+        
         return DB::table('list_data')
-                    ->whereYear('created_at', $year)
+                    ->where('batch_graduate', $year)
                     ->count();
 
     }

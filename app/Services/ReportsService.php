@@ -35,7 +35,7 @@ class ReportsService implements ReportsServiceInterface
     public function jobTrends($year, $course)
     {
 
-        $courseMap = $this->coureMapping($course);
+        $courseMap = $this->courseMapping($course);
          
         return $this->reportsRepositoryInterface->getJobTrends($year, $courseMap);
     }

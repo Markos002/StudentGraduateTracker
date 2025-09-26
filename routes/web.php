@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController\AlumnusController;
 use App\Http\Controllers\AdminController\DashboardController;
 use App\Http\Controllers\AdminController\InsightController;
 use App\Http\Controllers\AdminController\StudentController;
+use App\http\Controllers\StudentController\StudentDashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,14 +18,15 @@ Route::get('/dashboard', function () {
 
 Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
 
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/dashboard',[DashboardController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/insight', [InsightController::class, 'insight'])->name('admin.insight');
     Route::get('/student', [StudentController::class, 'student'])->name('admin.student');
-    Route::get('alumnus', [AlumnusController::class, 'alumnus'])->name('admin.alumnus');
+    Route::get('/alumnus', [AlumnusController::class, 'alumnus'])->name('admin.alumnus');
 });
 
 Route::prefix('student')->middleware(['auth', 'role:User'])->group(function () {
 
+    Route::get('/dashboard', [StudentDashboardController::class, 'dashboard']);
 });
 
 Route::get('/user', function () {

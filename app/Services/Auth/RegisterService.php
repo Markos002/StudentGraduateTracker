@@ -15,15 +15,11 @@ class RegisterService implements RegisterServiceInterface
         protected SessionManager $sessionManager,
      ){}
 
+     
     public function validate(array $studentId)
     {   
-        $data = $this->listdataRepository->findById($studentId['student_id']);
 
-      //  if(!$data || $data->tor_number !== $studentId['tor_number']){
-        //    throw new \Exception('Data not found or TOR number mismatch.');
-        //}
-
-        return $data;
+        return $this->listdataRepository->findById($studentId['student_id']);
 
     }
 

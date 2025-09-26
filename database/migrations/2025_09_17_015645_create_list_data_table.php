@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('last_name', 50)->nullable();
             $table->string('first_name', 50)->nullable();
             $table->unsignedInteger('tor_number')->nullable();
+            $table->string('batch_graduate', 10)->nullable();
             $table->timestamps();
         });
     }

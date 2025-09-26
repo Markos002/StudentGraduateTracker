@@ -18,7 +18,7 @@ class DashboardController extends Controller
         $totalGraduates = $this->reportsServiceInterface->totalGraduates();
         $employmentStats = $this->reportsServiceInterface->studentEmplomentStat();
 
-        return view('admin.dashboard', compact(
+        return view('pages.admin.dashboard', compact(
             'totalStudents',
             'totalGraduates',
             'employmentStats'

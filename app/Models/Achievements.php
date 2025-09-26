@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Achievements extends Model
 {
@@ -18,4 +19,11 @@ class Achievements extends Model
         'term'
 
     ];
+
+    public function user()
+    {
+
+        return $this->BelongsTo(User::class, 'user_id');
+        
+    }
 }

@@ -26,7 +26,7 @@ class StudentController extends Controller
         $studentList = $this->studentRegistryServiceInterface->studentList($year, $course);
         $courses = $this->courseList();  //List of course ALL,BSIT,BSMX etc.
 
-        return view('Admin.Student', compact(
+        return view('pages.admin.Student', compact(
             'availableYears',
             'selectedyear',
             'studentList',

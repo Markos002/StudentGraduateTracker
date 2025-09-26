@@ -34,9 +34,9 @@ class AuthenticatedSessionController extends Controller
 
         $auth = $this->loginSession->authSession($request);
 
-        return redirect()->intended(
-            $auth->role === 'Admin' ? '/admin/dashboard' : '/student/dashboard'
-        );
+        return $auth->role === 'Admin'
+            ? redirect('/admin/dashboard')
+            : redirect('/student/dashboard');
 
     }
 

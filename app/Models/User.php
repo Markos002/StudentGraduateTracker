@@ -41,6 +41,12 @@ class User extends Authenticatable
 
         return $this->hasOne(Job::class, 'user_id');
     }
+
+    public function achievement()
+    {
+
+        return $this->belongsToMany(Achievements::class, 'user_id');    
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

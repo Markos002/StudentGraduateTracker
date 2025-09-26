@@ -34,7 +34,10 @@ class RegisterUserConfirmController extends Controller
              if($studentId != $session['studentId']){
                 return redirect()->route('register-confirm', ['studentId' => $session['studentId']]);
             }
-          
+          if(now()->greaterThan($session['sessionExpireAt'])){
+               $this->sessionManager->destroy();
+               abort(419, 'Session Expire');
+          }
             return view('auth.register-confirm', ['studentData' => $session]);
 
         } catch (\Exception $e) {

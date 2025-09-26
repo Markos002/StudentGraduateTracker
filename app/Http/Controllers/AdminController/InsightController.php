@@ -34,7 +34,7 @@ class InsightController extends Controller
         $courses = $this->courseList();  //List of course ALL,BSIT,BSMX etc.
         $courseAlignment = $this->courseAlignment(); //aligned or notAligned 
 
-            return view('admin.insigth',compact(
+            return view('pages.admin.insigth',compact(
                 'availableYears',
                 'selectedYear',
                 'jobTrends',
