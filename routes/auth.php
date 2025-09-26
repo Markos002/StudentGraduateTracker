@@ -11,6 +11,17 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\RegisterUserConfirmController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
+Route::get('/dashboard', action: function () {
+    $user = Auth::user();
+
+    if (isset($user->role)) {
+        return redirect()->intended(
+                    $user->role === 'Admin' ? '/admin/dashboard' : '/student/dashboard'
+                );
+    }
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])

@@ -37,7 +37,16 @@ class StudentController extends Controller
     public function store(Request $request)
     {
 
+        $validated = $request->validate([
+                      'student_id' => 'required|integer|exists:users,user_id',
+                      'last_name' => 'nullable|string|max:50',
+                      'first_name' => 'nullable|string|max:50',
+                      'tor_number' => 'required|integer',
+                      'batch_graduate' => 'required|string|max:20',
+
+        ]);
         
+        $this->studentRegistryServiceInterface->addNewGraduate($validated);
 
     }
 

@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('list_data', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('student_id')->nullable();
+            $table->unsignedInteger('student_id');
             $table->string('last_name', 50)->nullable();
             $table->string('first_name', 50)->nullable();
-            $table->unsignedInteger('tor_number')->nullable();
-            $table->string('batch_graduate', 10)->nullable();
+            $table->unsignedInteger('tor_number');
+            $table->string('batch_graduate', 10);
             $table->timestamps();
         });
     }

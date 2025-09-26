@@ -17,5 +17,11 @@ class ListDataRepository implements ListDataRepositoryInterface
 
     }
 
+    public function create($data)
+    {
+
+        return ListData::create($data);
+    }
+
     
 }
