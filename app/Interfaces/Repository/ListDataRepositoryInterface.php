@@ -5,7 +5,13 @@ namespace App\Interfaces\Repository;
 interface ListDataRepositoryInterface
 {
 
-    public function findById($studentId);
-    
+    public function findByStudentId($studentId);
+
+    public function findById($id);
+
     public function create($data);
+
+    public function delete($id);
+
+    public function update($data);
 }

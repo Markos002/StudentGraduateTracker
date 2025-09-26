@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminController;
 
 use App\Http\Controllers\Controller;
+use App\Interfaces\Services\StudentRecordServiceInterface;
 use App\Interfaces\Services\StudentRegistryServiceInterface;
 use App\Traits\CourseList;
 use App\Traits\YearRange;
@@ -13,6 +14,7 @@ class StudentController extends Controller
     use YearRange;
     use CourseList;
     public function __construct(
+        protected StudentRecordServiceInterface $studentRecordServiceInterface,
         protected StudentRegistryServiceInterface $studentRegistryServiceInterface,
     ){}
 
@@ -23,7 +25,7 @@ class StudentController extends Controller
         $availableYears = $this->yearRange(); //2025 and up 
         $selectedYear = (string)$year;
 
-        $studentList = $this->studentRegistryServiceInterface->studentList($year, $course);
+        $studentList = $this->studentRecordServiceInterface->studentList($year, $course);
         $courses = $this->courseList();  //List of course ALL,BSIT,BSMX etc.
 
         return view('pages.admin.Student', compact(
@@ -46,7 +48,39 @@ class StudentController extends Controller
 
         ]);
         
-        $this->studentRegistryServiceInterface->addNewGraduate($validated);
+        try{
+
+            $this->studentRegistryServiceInterface->addNewGraduate($validated);
+            return redirect()->back()->with('success', 'Student record created successfully.');
+
+        }catch(\Exception $e){
+
+            return redirect()->back()->with('error', $e->getMessage());
+            
+        }
+      
+    }
+
+    public function edit(Request $request)
+    {
+
+
+
+    }
+
+    public function delete($id)
+    {
+
+        try{
+
+            $this->studentRegistryServiceInterface->deleteById($id);
+            return redirect()->back()->with('success', 'Student record delete successfully!');
+            
+        }catch(\Exception $e){
+
+            return redirect()->back()->with('error', $e->getMessage());
+
+        }
 
     }
 

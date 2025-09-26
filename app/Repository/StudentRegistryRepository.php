@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Interfaces\Repository\StudentRegistryRepositoryInterface;
 use App\Models\User;
+use App\Models\ListData;
 use Illuminate\Support\Facades\DB;
 
 
@@ -39,5 +40,19 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
                 ->where('course', $course)
                 ->where('graduate_year', $year)
                 ->get();
+    }
+
+    public function getMasterList($year)
+    {
+        
+        return ListData::select(
+               'id',
+               'student_id',
+               DB::raw("CONCAT(lastname, ', ', firstname) as full_name"),
+               'tor_number',
+               'batch_graduate'
+           )
+           ->where('batch_graduate', $year)
+           ->get();
     }
 }

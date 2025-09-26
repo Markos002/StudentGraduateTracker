@@ -19,7 +19,7 @@ class RegisterService implements RegisterServiceInterface
     public function validate(array $studentId)
     {   
 
-        return $this->listdataRepository->findById($studentId['student_id']);
+        return $this->listdataRepository->findByStudentId($studentId['student_id']);
 
     }
 

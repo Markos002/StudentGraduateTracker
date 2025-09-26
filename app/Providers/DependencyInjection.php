@@ -9,6 +9,7 @@ use App\Interfaces\Repository\StudentRegistryRepositoryInterface;
 use App\Interfaces\Repository\UserRepositoryInterface;
 use App\Interfaces\Services\Auth\RegisterServiceInterface;
 use App\Interfaces\Services\ReportsServiceInterface;
+use App\Interfaces\Services\StudentRecordServiceInterface;
 use App\Interfaces\Services\StudentRegistryServiceInterface;
 use App\Interfaces\Services\UserServiceInterface;
 use App\Repository\JobRepository;
@@ -18,6 +19,7 @@ use App\Repository\StudentRegistryRepository;
 use App\Repository\UserRepository;
 use App\Services\Auth\RegisterService;
 use App\Services\ReportsService;
+use App\Services\StudentRecordService;
 use App\Services\StudentRegistryService;
 use App\Services\UserService;
 use Illuminate\Support\ServiceProvider;
@@ -41,6 +43,7 @@ class DependencyInjection extends ServiceProvider
         $this->app->bind(UserServiceInterface::class, UserService::class);
         $this->app->bind(ReportsServiceInterface::class, ReportsService::class);
         $this->app->bind(StudentRegistryServiceInterface::class, StudentRegistryService::class);
+        $this->app->bind(StudentRecordServiceInterface::class, StudentRecordService::class);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminController;
 
 use App\Http\Controllers\Controller;
+use App\Interfaces\Services\StudentRecordServiceInterface;
 use App\Interfaces\Services\StudentRegistryServiceInterface;
 use App\Traits\CourseList;
 use App\Traits\YearRange;
@@ -15,7 +16,7 @@ class AlumnusController extends Controller
     use CourseList;
 
     public function __construct(
-        protected StudentRegistryServiceInterface $studentRegistryServiceInterface
+        protected StudentRecordServiceInterface $studentRecordServiceInterface
     ){}
 
     public function alumnus(Request $request)
@@ -25,7 +26,7 @@ class AlumnusController extends Controller
         $availableYears = $this->yearRange();
         $selectedYear = (string)$year;
 
-        $alumnusList = $this->studentRegistryServiceInterface->alumnusList($year, $course);
+        $alumnusList = $this->studentRecordServiceInterface->alumnusList($year, $course);
         $courses = $this->courseList();  //List of course ALL,BSIT,BSMX etc.
 
         return view('pages.dmin.Alumnus',compact(
