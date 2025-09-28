@@ -13,7 +13,7 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/js/app.js','resources/js/global.js','resources/js/modal.js'])
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-[#F3F3F3] flex max-w-screen">

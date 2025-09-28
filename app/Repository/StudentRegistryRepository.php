@@ -17,8 +17,9 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
          
         return User::select(
                   'user_id',
+                  'student_id',
                   'tor_number',
-                  DB::raw("CONCAT(lastname, ', ', firstname) as full_name"),
+                  DB::raw("CONCAT(last_name, ', ', first_name) as full_name"),
                   'course',
                   'year_graduate'
                  )
@@ -33,7 +34,7 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
         return User::with('job:user_id,occupation,occupation_status,course_alignment')
                 ->select(
                     'user_id',
-                    DB::raw("CONCAT(lastname, ', ', firstname) as full_name"),
+                    DB::raw("CONCAT(last_name, ', ', first_name) as full_name"),
                     'course',
 
                 )
@@ -48,7 +49,7 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
         return ListData::select(
                'id',
                'student_id',
-               DB::raw("CONCAT(lastname, ', ', firstname) as full_name"),
+               DB::raw("CONCAT(last_name, ', ', first_name) as full_name"),
                'tor_number',
                'batch_graduate'
            )

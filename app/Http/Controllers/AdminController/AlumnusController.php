@@ -29,11 +29,11 @@ class AlumnusController extends Controller
         $alumnusList = $this->studentRecordServiceInterface->alumnusList($year, $course);
         $courses = $this->courseList();  //List of course ALL,BSIT,BSMX etc.
 
-        return view('pages.dmin.Alumnus',compact(
-            'availableYears',
-            'selectedYear',
+        return view('pages.admin.alumnus',compact(
+            //'availableYears',
+            //'selectedYear',
             'alumnusList',
-            'courses',
+            //'courses',
         ));
     }
 }

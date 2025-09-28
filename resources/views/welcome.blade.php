@@ -31,7 +31,7 @@
                         <x-header
                             headerImage="logo.png"
                             :navigations="[
-                                ['label' => 'Home', 'ids' => ''],
+                                ['label' => 'Home', 'ids' => 'home'],
                                 ['label' => 'Features', 'ids' => 'features'],
                                 ['label' => 'About Us', 'ids' => 'about-us'],
                                 ['label' => 'Workflow', 'ids' => 'workflow'],

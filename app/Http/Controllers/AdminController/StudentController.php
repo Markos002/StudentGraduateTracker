@@ -21,18 +21,19 @@ class StudentController extends Controller
     public function student(Request $request)
     {
         $year = $request->year?? now()->year;
-        $course = $request->course?? 'ALL'; //defaut ALL,,You can pass ALL,BSIT,BSMX etc.
+        $selectedCourse = $request->course?? 'ALL'; //defaut ALL,,You can pass ALL,BSIT,BSMX etc.
         $availableYears = $this->yearRange(); //2025 and up 
         $selectedYear = (string)$year;
 
-        $studentList = $this->studentRecordServiceInterface->studentList($year, $course);
+        $studentList = $this->studentRecordServiceInterface->studentList($year, $selectedCourse);
         $courses = $this->courseList();  //List of course ALL,BSIT,BSMX etc.
 
-        return view('pages.admin.Student', compact(
+        return view('pages.admin.student', compact(
             'availableYears',
-            'selectedyear',
+            'selectedYear',
             'studentList',
             'courses',
+            'selectedCourse'
         ));
     }
 
