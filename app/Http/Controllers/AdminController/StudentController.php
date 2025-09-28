@@ -47,10 +47,10 @@ class StudentController extends Controller
                       'first_name' => 'nullable|string|max:50',
                       'tor_number' => 'required|numeric',
                       'course_graduate' => 'required|string|max:20',
-                      'batch_graduate' => 'required|numeric|max:20',
+                      'batch_graduate' => 'required|numeric',
 
         ]);
-        
+
         try{
            
             $this->studentRegistryServiceInterface->addNewGraduate($validated);
