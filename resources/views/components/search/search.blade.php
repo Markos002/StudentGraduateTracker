@@ -6,7 +6,7 @@
 
 <div class="relative w-full">
     <input 
-        {{ $attributes->merge(['class' => 'border-none rounded p-2 w-full pl-10 focus:outline-none focus:ring-0 focus:ring-offset-0']) }}
+        {{ $attributes->merge(['class' => 'border-none rounded p-1.5 w-full pl-10 focus:outline-none focus:ring-0 focus:ring-offset-0']) }}
         type="{{ $type }}" 
         id="{{ $id }}" 
         placeholder="{{ $placeholder }}"

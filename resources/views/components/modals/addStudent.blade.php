@@ -1,6 +1,6 @@
 {{-- Add Student Modal --}}
-<div id="studentModal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div class="bg-white rounded-lg w-full max-w-lg p-10">
+<div id="studentModal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-5 z-50">
+    <div class=" bg-white rounded-lg w-full max-w-lg h-full overflow-y-auto max-h-[20rem]lg:h-full lg:max-h-[40rem] p-8">
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-lg font-semibold">Add New Student</h2>
             <button onclick="closeModal('studentModal')" class="text-gray-600 hover:text-gray-900">
@@ -8,46 +8,55 @@
             </button>
         </div>
  
-        <form action="" method="POST" class="space-y-4 grid grid-col-2 ">
+        <form action="{{ route('admin.student.add') }}" method="POST">
             @csrf
-            <div class="flex">
-                <x-inputs.standard-input 
-                type="number"
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2 text-sm">
+                <x-inputs.modal-input 
+                type="text"
+                id="first_name"
+                name="first_name"
+                label="First Name"
+                placeholder="Enter First Name"
+                />
+                <x-inputs.modal-input 
+                type="text"
+                id="last_name"
+                name="last_name"
+                label="Last Name"
+                placeholder="Enter Last Name"
+                />
+                <x-inputs.modal-input 
+                type="text"
                 id="student_id"
                 name="student_id"
                 label="Student ID"
-                class="border"
+                placeholder="Enter Student ID"
                 />
-                
-                <x-inputs.standard-input 
-                type="number"
-                id="student_id"
-                name="student_id"
-                label="Student ID"
-                class="border"
+                <x-inputs.modal-input 
+                type="text"
+                id="tor_number"
+                name="tor_number"
+                label="TOR Number"
+                placeholder="Enter TOR Number"
+                />
+                {{-- Course Select --}}
+                <x-inputs.select-input 
+                    id="course" 
+                    name="course" 
+                    label="Course" 
+                    :options="$courses" 
+                    :selected="old('course', $selectedCourse ?? null)" 
+                />
+
+                <x-inputs.modal-input 
+                type="text"
+                id="batch_graduate"
+                name="batch_graduate"
+                label="Year Graduated"
+                placeholder="Enter Year"
                 />
             </div>
-            <div>
-                <label class="block text-sm font-medium">Student ID</label>
-                <input type="number" name="student_id" class="w-full border rounded p-2" required>
-            </div>
-            <div>
-                <label class="block text-sm font-medium">Last Name</label>
-                <input type="text" name="last_name" class="w-full border rounded p-2">
-            </div>
-            <div>
-                <label class="block text-sm font-medium">First Name</label>
-                <input type="text" name="first_name" class="w-full border rounded p-2">
-            </div>
-            <div>
-                <label class="block text-sm font-medium">TOR Number</label>
-                <input type="number" name="tor_number" class="w-full border rounded p-2" required>
-            </div>
-            <div>
-                <label class="block text-sm font-medium">Batch Graduate</label>
-                <input type="text" name="batch_graduate" class="w-full border rounded p-2" required>
-            </div>
-            <div class="flex justify-start gap-3">
+            <div class="flex justify-start gap-5 py-3">
                 <x-buttons.secondary-button type="submit"> 
                     Submit
                 </x-buttons.secondary-button>

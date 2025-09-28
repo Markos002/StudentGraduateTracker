@@ -25,6 +25,17 @@
         });
     }
 
+    document.addEventListener("DOMContentLoaded", () => {
+        const numberFields = ["student_id", "batch_graduate","tor_number"];
+
+        numberFields.forEach(id => {
+            const input = document.getElementById(id);
+
+            input.addEventListener("input", function () {
+                this.value = this.value.replace(/\D/g, ""); 
+            });
+        });
+    });
 
 window.setYear = setYear;
 window.setCourse = setCourse;

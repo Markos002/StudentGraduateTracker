@@ -19,6 +19,9 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
     Route::get('/insight', [InsightController::class, 'analytics'])->name('admin.insight');
     Route::get('/student', [StudentController::class, 'student'])->name('admin.student');
     Route::get('/alumnus', [AlumnusController::class, 'alumnus'])->name('admin.alumnus');
+    
+    //POST//
+    Route::post('/student/add', [StudentController::class,'store'])->name('admin.student.add');
 });
 
 Route::prefix('student')->middleware(['auth', 'role:User'])->group(function () {

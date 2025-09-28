@@ -22,18 +22,19 @@ class AlumnusController extends Controller
     public function alumnus(Request $request)
     {
         $year = $request->year?? now()->year;
-        $course = $request->course?? 'ALL';
+        $selectedCourse = $request->course?? 'ALL';
         $availableYears = $this->yearRange();
         $selectedYear = (string)$year;
 
-        $alumnusList = $this->studentRecordServiceInterface->alumnusList($year, $course);
+        $alumnusList = $this->studentRecordServiceInterface->alumnusList($year, $selectedCourse);
         $courses = $this->courseList();  //List of course ALL,BSIT,BSMX etc.
 
         return view('pages.admin.alumnus',compact(
-            //'availableYears',
-            //'selectedYear',
-            'alumnusList',
-            //'courses',
+            'availableYears',
+            'selectedYear',
+            //'alumnusList',
+            'courses',
+            'selectedCourse'
         ));
     }
 }
