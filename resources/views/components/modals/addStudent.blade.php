@@ -42,18 +42,18 @@
                 {{-- Course Select --}}
                 <x-inputs.select-input 
                     id="course" 
-                    name="course" 
+                    name="course_graduate" 
                     label="Course" 
                     :options="$courses" 
                     :selected="old('course', $selectedCourse ?? null)" 
                 />
 
                 <x-inputs.modal-input 
-                type="text"
-                id="batch_graduate"
-                name="batch_graduate"
-                label="Year Graduated"
-                placeholder="Enter Year"
+                    type="text"
+                    id="batch_graduate"
+                    name="batch_graduate"
+                    label="Year Graduated"
+                    placeholder="Enter Year"
                 />
             </div>
             <div class="flex justify-start gap-5 py-3">

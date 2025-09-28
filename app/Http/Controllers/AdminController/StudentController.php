@@ -13,6 +13,7 @@ class StudentController extends Controller
 {
     use YearRange;
     use CourseList;
+
     public function __construct(
         protected StudentRecordServiceInterface $studentRecordServiceInterface,
         protected StudentRegistryServiceInterface $studentRegistryServiceInterface,
@@ -41,16 +42,17 @@ class StudentController extends Controller
     {
 
         $validated = $request->validate([
-                      'student_id' => 'required|integer|exists:users,user_id',
+                      'student_id' => 'required|numeric',
                       'last_name' => 'nullable|string|max:50',
                       'first_name' => 'nullable|string|max:50',
-                      'tor_number' => 'required|integer',
-                      'batch_graduate' => 'required|string|max:20',
+                      'tor_number' => 'required|numeric',
+                      'course_graduate' => 'required|string|max:20',
+                      'batch_graduate' => 'required|numeric|max:20',
 
         ]);
         
         try{
-
+           
             $this->studentRegistryServiceInterface->addNewGraduate($validated);
             return redirect()->back()->with('success', 'Student record created successfully.');
 

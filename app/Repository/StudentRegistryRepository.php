@@ -15,16 +15,16 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
     public function getStudentByYearAndCourse($year, $course)
     {
          
-        return User::select(
-                  'user_id',
+         return ListData::select(
+                  'id',
                   'student_id',
                   'tor_number',
                   DB::raw("CONCAT(last_name, ', ', first_name) as full_name"),
-                  'course',
-                  'year_graduate'
+                  'course_graduate',
+                  'batch_graduate'
                  )
-                ->where('course', $course)
-                ->where('year_graduate', $year)
+                ->whereIn('course_graduate', $course)
+                ->where('batch_graduate', $year)
                 ->get();
     }
 

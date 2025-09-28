@@ -98,8 +98,8 @@
                         $student->student_id,
                         $student->full_name,
                         $student->tor_number,
-                        $student->course,
-                        $student->year_graduate,
+                        $student->course_graduate,
+                        $student->batch_graduate,
                     ])"
                 />
             </div>
