@@ -1,4 +1,4 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white'])
+@props(['align' => 'right', 'width' => '50', 'contentClasses' => 'py-1 bg-white'])
 
 @php
 $alignmentClasses = match ($align) {
@@ -8,12 +8,12 @@ $alignmentClasses = match ($align) {
 };
 
 $width = match ($width) {
-    '48' => 'w-full',
+    '50' => 'w-full',
     default => $width,
 };
 @endphp
 
-<div class="w-full relative flex cursor-pointer rounded-md border border-black " x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
+<div {{ $attributes->merge(['class' => 'w-auto relative flex cursor-pointer rounded-md border border-black ']) }} x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
     <div class="flex gap-5 cursor-pointer py-1.5 px-7" @click="open = ! open">
         {{ $trigger }}
         <div class="place-content-center">

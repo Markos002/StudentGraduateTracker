@@ -51,7 +51,7 @@
                             {{-- Course Filter --}}
                             <x-dropdown>
                                 <x-slot:trigger>
-                                    <button type="button" class=" rounded w-full sm:w-auto">
+                                    <button type="button" class="rounded w-full sm:w-auto">
                                         {{ $selectedCourse }}
                                     </button>
                                 </x-slot:trigger>
@@ -80,7 +80,7 @@
                 </div>
             @endif
 
-            {{-- Table 
+            {{-- Table --}}
             <div class="overflow-x-auto">
                 <x-table.table
                     :headers="['Full Name', 'Occupation', 'Course', 'Occupation Status', 'Course Alignment']"
@@ -93,7 +93,7 @@
                     ])"
                 />
             </div>
-            --}}
+            
 
             <x-modals.addStudent :selectedCourse="$selectedCourse" :courses="$courses"/>
         </div>

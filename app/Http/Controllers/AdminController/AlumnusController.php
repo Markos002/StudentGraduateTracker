@@ -32,7 +32,7 @@ class AlumnusController extends Controller
         return view('pages.admin.alumnus',compact(
             'availableYears',
             'selectedYear',
-            //'alumnusList',
+            'alumnusList',
             'courses',
             'selectedCourse'
         ));

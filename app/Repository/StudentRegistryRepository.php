@@ -39,7 +39,7 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
 
                 )
                 ->where('course', $course)
-                ->where('graduate_year', $year)
+                ->where('year_graduate', $year)
                 ->get();
     }
 
