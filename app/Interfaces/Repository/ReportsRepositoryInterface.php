@@ -14,10 +14,10 @@ interface ReportsRepositoryInterface
 
     public function getJobTrends($year, $course);
 
-    public function getStudentStatusOverView($course_alignment);
+    public function getStudentStatusOverView($year, $course_alignment);
 
     //Demograpic Base on Current Year and Selected Course
-    public function getDemographicByCourse($course);
+    public function getDemographicByCourse($year, $course);
 
     
 

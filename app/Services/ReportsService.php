@@ -35,21 +35,23 @@ class ReportsService implements ReportsServiceInterface
     public function jobTrends($year, $course)
     {
 
-        $courseMap = $this->courseMapping($course);
+        $courseSelect = $this->courseMapping($course);
          
-        return $this->reportsRepositoryInterface->getJobTrends($year, $courseMap);
+        return $this->reportsRepositoryInterface->getJobTrends($year, $courseSelect);
     }
 
-    public function studentStatisticOverView($course_alignment)
+    public function studentStatisticOverView($year, $course_alignment)
     {
 
-        return $this->reportsRepositoryInterface->getStudentStatusOverView($course_alignment);
+        return $this->reportsRepositoryInterface->getStudentStatusOverView($year,$course_alignment);
     }
 
-    public function demographicByCourse($course)
+    public function demographicByCourse($year, $course)
     {
+       
+        $courseSelect = $this->courseMapping($course);
 
-        return $this->reportsRepositoryInterface->getDemographicByCourse($course);
+        return $this->reportsRepositoryInterface->getDemographicByCourse($year, $courseSelect);
     }
 
 

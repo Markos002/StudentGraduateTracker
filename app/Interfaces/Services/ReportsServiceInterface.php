@@ -13,8 +13,8 @@ interface ReportsServiceInterface
 
     public function jobTrends($year, $course);
 
-    public function studentStatisticOverView($course_alignment);
+    public function studentStatisticOverView($year, $course_alignment);
 
-    public function demographicByCourse($course);
+    public function demographicByCourse($year, $course);
     
 }

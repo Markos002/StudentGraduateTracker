@@ -28,9 +28,9 @@ class InsightController extends Controller
         $availableYears = $this->yearRange();
         $selectedYear = (string)$year;
 
-        $jobTrend = $this->reportsServiceInterface->jobTrends($year, $course);
-        $studentAlignment = $this->reportsServiceInterface->studentStatisticOverView($alignedSelect); 
-        $studentOverViewCourse = $this->reportsServiceInterface->demographicByCourse($course); 
+        $jobTrends = $this->reportsServiceInterface->jobTrends($year, $course);
+        $studentAlignment = $this->reportsServiceInterface->studentStatisticOverView($year, $alignedSelect); 
+        $studentOverViewCourse = $this->reportsServiceInterface->demographicByCourse($year, $course); 
         $courses = $this->courseList();  //List of course ALL,BSIT,BSMX etc.
         $courseAlignment = $this->courseAlignment(); //aligned or notAligned 
 

@@ -13,6 +13,7 @@ class ListData extends Model
         'last_name',
         'first_name',
         'tor_number',
+        'course_graduate',
         'batch_graduate',
     ];
 }
