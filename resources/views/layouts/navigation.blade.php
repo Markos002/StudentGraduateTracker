@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-[#F3F3F3] border-r border-gray-200 w-64 min-h-screen flex flex-col">
+<nav x-data="{ open: false }" class="bg-[#F3F3F3] border-r border-gray-200 lg:w-64 min-h-screen lg:flex flex-col">
     <div class="hidden md:flex lg:flex flex-col">
         <!-- Logo Section -->
         <div class="p-6 border-b border-gray-200">

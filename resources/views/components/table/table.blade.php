@@ -2,6 +2,11 @@
     'headers' => [],
     'rows' => [],
     'noDataMessage' => 'No data available.',
+    'paginator' => null,
+    'showPagination' => true,
+    'showResultsInfo' => true,
+    'paginationClass' => '',
+    'clickable' => false
 ])
 
 <div class="overflow-x-auto bg-white rounded shadow">
@@ -15,11 +20,16 @@
         </thead>
         <tbody>
             @forelse ($rows as $row)
-                <tr class="text-center">
-                    @foreach ($row as $key => $cell)
+                <tr 
+                    class="text-center {{ $clickable ? 'cursor-pointer hover:bg-gray-100 transition' : '' }}"
+                    @if($clickable) onclick="showDataModal({{ json_encode($row) }})" @endif
+                >
+                    @foreach ($headers as $header)
                         @php
+                            $key = strtolower(str_replace(' ', '', $header));
+                            $cell = $row[$key] ?? '';
                             $cellClass = 'inline-flex items-center justify-center px-5 py-2 rounded'; 
-                            $headerName = strtolower($headers[$key] ?? '');
+                            $headerName = strtolower($header);
                             if (str_contains($headerName, 'occupation status')) {
                                 $pointerCell = strtolower($cell);
                                 if ($pointerCell === 'employed') {
@@ -31,9 +41,9 @@
                             if (str_contains($headerName, 'course alignment')) {
                                 $pointerCell = strtolower($cell);
                                 if ($pointerCell === 'aligned') {
-                                    $cellClass .= '  text-black font-bold';
+                                    $cellClass .= ' text-black font-bold';
                                 } elseif ($pointerCell === 'not aligned') {
-                                    $cellClass .= '  text-[#D32D2F] font-bold';
+                                    $cellClass .= ' text-[#D32D2F] font-bold';
                                 }
                             }
                         @endphp
@@ -53,4 +63,50 @@
             @endforelse
         </tbody>
     </table>
+    {{-- Pagination Section --}}
+    @if($paginator && $showPagination)
+        <div class="bg-white rounded shadow px-6 py-4">
+            <div class="{{ $paginationClass }} w-full">
+                {{ $paginator->links('vendor.pagination.tailwind') }}
+            </div>
+        </div>
+    @endif
+    <x-modals.profileCard/>
 </div>
+<script>
+    function showDataModal(row) {
+    
+    let modalContent = document.getElementById('modalContent');
+    
+    let employementStatus = '';
+    if (row.status.toLowerCase() === 'unemployed') {
+        employementStatus = 'bg-yellow-300 text-black';
+    } else if (row.status.toLowerCase() === 'employed') {
+        employementStatus = 'bg-gray-400 text-white';
+    } else if (row.status.toLowerCase() === 'unregistered') {
+        employementStatus = 'bg-red-500 text-white';
+    }
+    modalContent.innerHTML = '';    
+        
+    modalContent.innerHTML += `
+        <div class="flex text-black items-center pb-2 gap-5">
+            <span class="font-bold text-3xl">${row.fullname}</span>
+            <span class="${employementStatus} px-2 py-0.5 text-lg font-medium rounded">${row.status}</span>
+        </div>
+        <div class="mt-2 text-black border-b text-md">${row.graduatedcourse}</div>
+        <div class="flex justify-between py-2 text-black text-md">
+            <span>Current Work:${row.currentwork}</span>
+            <span>Year Graduated: <strong>${row.yeargraduate}</strong></span>
+        </div>
+        <div class="py-2 text-black">Email Address: ${row.email}</div>
+        <div class="py-2 text-black">Contact Number: ${row.contactnumber}</div>
+        <div class="py-2 text-black">Previous Works: ${row.works || 'N/A'}</div>
+    `   
+    document.getElementById('dataModal').classList.remove('hidden');
+    document.getElementById('dataModal').classList.add('flex');
+    }
+    function closeDataModal() {
+        document.getElementById('dataModal').classList.add('hidden');
+        document.getElementById('dataModal').classList.remove('flex');
+    }
+</script>

@@ -12,6 +12,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/settings',function(){
+    return view('settings');
+});
 
 Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
 

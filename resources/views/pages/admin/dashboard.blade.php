@@ -7,7 +7,7 @@
         <h1 class="text-2xl font-bold text-gray-800">Admin Dashboard</h1>
 
         <!-- Stats Section -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6 text-black">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 text-black">
             <!-- Total Students -->
             <div class="flex justify-between bg-white rounded-lg shadow px-6 py-8">
                 <div class="space-y-5">

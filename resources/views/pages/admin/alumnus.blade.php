@@ -85,16 +85,17 @@
                 <x-table.table
                     :headers="['Full Name', 'Occupation', 'Course', 'Occupation Status', 'Course Alignment']"
                     :rows="$alumnusList->map(fn($alumnuslist) => [
-                        $alumnuslist->full_name,
-                        $alumnuslist->job->occupation ?? 'N/A',
-                        $alumnuslist->course,
-                        $alumnuslist->job->occupation_status ?? 'N/A',
-                        $alumnuslist->job->course_alignment ?? 'N/A',
+                        'fullname' => $alumnuslist->full_name,
+                        'occupation' =>  $alumnuslist->job->occupation ?? 'N/A',
+                        'course' =>  $alumnuslist->course,
+                        'occupationstatus' =>  $alumnuslist->job->occupation_status ?? 'N/A',
+                        'coursealignment' =>  $alumnuslist->job->course_alignment ?? 'N/A',
+                        
                     ])"
+                    :paginator="$alumnusList"
+                    :showPagination="true"
                 />
             </div>
-            
-
             <x-modals.addStudent :selectedCourse="$selectedCourse" :courses="$courses"/>
         </div>
     </div>

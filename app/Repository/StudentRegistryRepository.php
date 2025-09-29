@@ -25,7 +25,7 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
                  )
                 ->whereIn('course_graduate', $course)
                 ->where('batch_graduate', $year)
-                ->get();
+                ->paginate(7);
     }
 
     public function getAlumnus($year, $course)
@@ -40,7 +40,7 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
                 )
                 ->where('course', $course)
                 ->where('year_graduate', $year)
-                ->get();
+                ->paginate(7);
     }
 
     public function getMasterList($year)
@@ -54,6 +54,6 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
                'batch_graduate'
            )
            ->where('batch_graduate', $year)
-           ->get();
+           ->paginate(7);
     }
 }
