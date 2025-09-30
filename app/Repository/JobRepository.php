@@ -16,5 +16,21 @@ class JobRepository implements JobRepositoryInterface
 
     }
 
+    public function store($data)
+    {
+
+        return Job::create($data);
+
+    }
+
+    public function update($data)
+    {
+
+        $find = $this->findById($data['job_id']);
+
+        return $find->update($data);
+        
+    }
+
     
 }

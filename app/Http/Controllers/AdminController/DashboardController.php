@@ -14,6 +14,7 @@ class DashboardController extends Controller
 
     public function dashboard()
     {
+
         $totalStudents = $this->reportsServiceInterface->registerStudents();
         $totalGraduates = $this->reportsServiceInterface->totalGraduates();
         $employmentStats = $this->reportsServiceInterface->studentEmplomentStat();

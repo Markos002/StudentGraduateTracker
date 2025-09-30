@@ -2,14 +2,14 @@
 
 namespace App\Interfaces\Repository;
 
-interface JobRepositoryInterface
+interface AchievementRepositoryInterface
 {
 
-
-    public function findById($job_id);
+    public function findById($achievementId);
 
     public function store($data);
 
     public function update($data);
-    
+
+
 }

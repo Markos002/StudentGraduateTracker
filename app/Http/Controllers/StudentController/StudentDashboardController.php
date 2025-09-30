@@ -13,5 +13,8 @@ class StudentDashboardController extends Controller
     {
 
         return view('pages.student.dashboard');
+        
     }
+
+
 }

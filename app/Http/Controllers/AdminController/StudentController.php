@@ -41,7 +41,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
 
-        $validated = $request->validate([
+        $request->validate([
                       'student_id' => 'required|numeric',
                       'last_name' => 'nullable|string|max:50',
                       'first_name' => 'nullable|string|max:50',
@@ -53,7 +53,7 @@ class StudentController extends Controller
 
         try{
            
-            $this->studentRegistryServiceInterface->addNewGraduate($validated);
+            $this->studentRegistryServiceInterface->addNewGraduate($request);
             return redirect()->back()->with('success', 'Student record created successfully.');
 
         }catch(\Exception $e){
@@ -66,9 +66,25 @@ class StudentController extends Controller
 
     public function edit(Request $request)
     {
+        $request->validate([
+                      'student_id' => 'required|numeric',
+                      'last_name' => 'nullable|string|max:50',
+                      'first_name' => 'nullable|string|max:50',
+                      'tor_number' => 'required|numeric',
+                      'course_graduate' => 'required|string|max:20',
+                      'batch_graduate' => 'required|numeric',         
+        ]);
 
+        try{
+            
+            $this->studentRegistryServiceInterface->updateData($request);
+            return redirect()->back()->with('success', 'Student record updated successfully.');
 
+        }catch(\Exception $e){
 
+            return redirect()->back()->with('error', $e->getMessage());
+
+        }
     }
 
     public function delete($id)

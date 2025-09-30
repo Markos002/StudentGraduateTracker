@@ -2,22 +2,26 @@
 
 namespace App\Providers;
 
+use App\Interfaces\Repository\AchievementRepositoryInterface;
 use App\Interfaces\Repository\JobRepositoryInterface;
 use App\Interfaces\Repository\ListDataRepositoryInterface;
 use App\Interfaces\Repository\ReportsRepositoryInterface;
 use App\Interfaces\Repository\StudentRegistryRepositoryInterface;
 use App\Interfaces\Repository\UserRepositoryInterface;
 use App\Interfaces\Services\Auth\RegisterServiceInterface;
+use App\Interfaces\Services\JobServiceInterface;
 use App\Interfaces\Services\ReportsServiceInterface;
 use App\Interfaces\Services\StudentRecordServiceInterface;
 use App\Interfaces\Services\StudentRegistryServiceInterface;
 use App\Interfaces\Services\UserServiceInterface;
+use App\Repository\AchievementRepository;
 use App\Repository\JobRepository;
 use App\Repository\ListDataRepository;
 use App\Repository\ReportsRepository;
 use App\Repository\StudentRegistryRepository;
 use App\Repository\UserRepository;
 use App\Services\Auth\RegisterService;
+use App\Services\JobService;
 use App\Services\ReportsService;
 use App\Services\StudentRecordService;
 use App\Services\StudentRegistryService;
@@ -37,6 +41,7 @@ class DependencyInjection extends ServiceProvider
         $this->app->bind(JobRepositoryInterface::class, JobRepository::class);
         $this->app->bind(ReportsRepositoryInterface::class, ReportsRepository::class);
         $this->app->bind(StudentRegistryRepositoryInterface::class, StudentRegistryRepository::class);
+        $this->app->bind(AchievementRepositoryInterface::class, AchievementRepository::class);
 
         // Services
         $this->app->bind(RegisterServiceInterface::class, RegisterService::class);
@@ -44,6 +49,7 @@ class DependencyInjection extends ServiceProvider
         $this->app->bind(ReportsServiceInterface::class, ReportsService::class);
         $this->app->bind(StudentRegistryServiceInterface::class, StudentRegistryService::class);
         $this->app->bind(StudentRecordServiceInterface::class, StudentRecordService::class);
+        $this->app->bind(JobServiceInterface::class, JobService::class);
     }
 
     /**
