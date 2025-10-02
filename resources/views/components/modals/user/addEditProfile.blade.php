@@ -1,4 +1,4 @@
-{{-- Add Student Modal --}}
+{{-- User Personal Detail -- DASHBOARD USER --}}
 <div id="userProfile" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-5 z-50">
     <div class=" bg-white rounded-lg w-full max-w-lg h-full overflow-y-auto max-h-[20rem]lg:h-full lg:max-h-[40rem] p-8">
         <div class="flex justify-between items-center mb-4">
@@ -45,14 +45,14 @@
                     <p>Email</p>
                     <div class="flex justify-between py-3">
                         <p>Email.com</p>
-                        <a href="#" class="border-b border-black">Edit in Settings</a>
+                        <a href="{{ route('profile.edit') }}" class="border-b border-black">Edit in Settings</a>
                     </div>
                 </div>
             <div class="flex justify-start gap-5 py-3">
                 <x-buttons.primary-button type="submit"> 
                     Submit
                 </x-buttons.primary-button>
-                <button type="button" onclick="closeModal('studentModal')" class="px-4 py-2 text-black">
+                <button type="button" onclick="closeModal('userProfile')" class="px-4 py-2 text-black">
                     Cancel
                 </button>
             </div>

@@ -29,7 +29,7 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
 
 Route::prefix('student')->middleware(['auth', 'role:User'])->group(function () {
 
-    Route::get('/dashboard', [StudentDashboardController::class, 'dashboard']);
+    Route::get('/dashboard', [StudentDashboardController::class, 'dashboard'])->name('student.dashboard');
 });
 
 Route::get('/user', function () {

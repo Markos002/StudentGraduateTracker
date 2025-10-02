@@ -17,7 +17,7 @@
 
 
     @if ($isPassword)
-        <button type="button"
+        <button id="toggleBtn" type="button"
             onclick="togglePassword('{{ $id }}')"
             class="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-gray-700 focus:outline-none">
             {{-- Open --}}
@@ -34,7 +34,6 @@
         </button>
     @endif
 </div>
-
 @once
     <script>
         function togglePassword(id) {

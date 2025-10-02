@@ -5,7 +5,8 @@
 <div class="flex justify-between gap-4 w-full">
     {{-- Row 1: Header Image --}}
     <div class="flex items-center justify-center h-8">
-        @if ($headerImage)
+       <a href="{{ route('student.dashboard') }}" class="h-8">
+         @if ($headerImage)
             <img src="{{ asset('images/' . $headerImage) }}" 
                 alt="Header Image" 
                 class="w-full h-full object-cover rounded">
@@ -14,6 +15,7 @@
                 <span class="text-gray-500">Header not found;</span>
             </div>
         @endif
+       </a>
     </div>
 
     {{-- MOBILE NAV TOGGLE --}}

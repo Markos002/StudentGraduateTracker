@@ -20,12 +20,12 @@
             </style>
         @endif
     </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-        <div class="bg-[#FCF5F2]">
+    <body class="font-sans antialiased dark:bg-black dark:text-white/50 ">
+        <div class="bg-[#FCF5F2] ">
             <div class="relative overflow-hidden min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
                 <div class="decorative-circle absolute rounded-full w-96 h-96 bg-gray-500 -left-48 top-[33rem] md:top-[48rem] lg:top-[32rem]"></div>
                 <div class="decorative-circle2 absolute w-64 h-40 bg-red-500 opacity-20 right-[-50px] top-[70px] rounded-l-lg"></div>
-                <div class=" flex-1 py-5 z-10 max-w-2xl px-6 lg:max-w-7xl ">
+                <div class=" flex-1 py-5 z-10 px-10 lg:px-40 w-full  ">
                     <header class="flex justify-between items-center gap-2">
                         <x-header.auth-header
                             headerImage="logo.png"

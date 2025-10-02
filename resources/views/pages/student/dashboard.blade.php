@@ -7,7 +7,20 @@
             <div class="absolute -top-8 -right-8 w-40 h-40 bg-[#FFBAA1]  rounded-full"></div>
             <div class="absolute top-10 right-60 w-10 h-10 bg-[#FF8800] rounded"></div>
             <div class="absolute -bottom-14 right-24 w-40 h-40 bg-[#8FE5A6] rounded"></div>
-            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <button onclick="showDrawer('summary')" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+                Summary
+            </button>
+            <button onclick="showDrawer('addRole')" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+                Add Role
+            </button>
+            <button onclick="showDrawer('editRole')" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+                Edit Role
+            </button>
+            <button onclick="showDrawer('addCertification')" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+                Add Certification
+            </button>
+        </div>
             <!-- Name and Title -->
             <div class=" py-5 px-[0.5rem] lg:px-[5rem]">
                 <div class="flex gap-7">
@@ -171,6 +184,17 @@
                 </button>
             </section>
         </div>
-        <x-modals.addEditProfile/>
+        <x-modals.user.addEditProfile/>
+        <x-modals.modalall/>
     </div>
 </x-user-layout>
+
+<script>
+            function showDrawer(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function hideDrawer(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+</script>

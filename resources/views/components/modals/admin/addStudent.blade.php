@@ -17,6 +17,7 @@
                 name="first_name"
                 label="First Name"
                 placeholder="Enter First Name"
+                
                 />
                 <x-inputs.modal-input 
                 type="text"
