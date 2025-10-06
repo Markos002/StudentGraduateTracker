@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Achievements extends Model
 {
-    protected $primaryKey = 'achievment_id';
+    protected $primaryKey = 'achievement_id';
     protected $keyType = 'int';
     public $incrementing = true;
 

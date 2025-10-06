@@ -39,6 +39,40 @@
         });
     });
 
+document.addEventListener('change', function(e) {
+    if (e.target && e.target.id === 'expiry') {
+        certification();
+    }
+    if (e.target && e.target.id === 'untilNow') {
+        role();
+    }
+});
+
+    function certification() {
+    const checkbox = document.getElementById('expiry');
+    const endedField = document.getElementById('expEndfield');
+    const endDateInput = document.getElementById('expiry_date');
+
+    if (checkbox.checked) {
+        endedField.classList.add('hidden');
+        endDateInput.value = '';
+    } else {
+        endedField.classList.remove('hidden');
+    }
+}
+
+    function role() {
+        const checkbox = document.getElementById('untilNow');
+        const endedField = document.getElementById('endField');
+        const endDateInput = document.getElementById('end_date');
+
+        if (checkbox.checked) {
+            endedField.classList.add('hidden');
+            endDateInput.value = ''; 
+        } else {
+            endedField.classList.remove('hidden');
+        }
+    }
 
 window.setYear = setYear;
 window.setCourse = setCourse;

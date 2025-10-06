@@ -17,7 +17,7 @@ class AchievementRepository implements AchievementRepositoryInterface
     public function store($data)
     {
 
-        return Achievements::created($data);
+        return Achievements::create($data);
 
     }
 
@@ -44,7 +44,7 @@ class AchievementRepository implements AchievementRepositoryInterface
 
         return Achievements::where('user_id', $userId)
                        ->select([
-                          'achievemet_id',
+                          'achievement_id',
                           'cert_name',
                           'year',
                           'term',

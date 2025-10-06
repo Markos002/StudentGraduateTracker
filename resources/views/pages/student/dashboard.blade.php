@@ -7,20 +7,7 @@
             <div class="absolute -top-8 -right-8 w-40 h-40 bg-[#FFBAA1]  rounded-full"></div>
             <div class="absolute top-10 right-60 w-10 h-10 bg-[#FF8800] rounded"></div>
             <div class="absolute -bottom-14 right-24 w-40 h-40 bg-[#8FE5A6] rounded"></div>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <button onclick="showDrawer('summary')" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
-                Summary
-            </button>
-            <button onclick="showDrawer('addRole')" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
-                Add Role
-            </button>
-            <button onclick="showDrawer('editRole')" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
-                Edit Role
-            </button>
-            <button onclick="showDrawer('addCertification')" class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
-                Add Certification
-            </button>
-        </div>
+
             <!-- Name and Title -->
             <div class=" py-5 px-[0.5rem] lg:px-[5rem]">
                 <div class="flex gap-7">
@@ -51,12 +38,12 @@
             <!-- Personal Summary -->
             <section class="mb-8 mx-10">
                 <h2 class="text-3xl font-semibold text-gray-800 mb-4 pb-2">Personal Summary</h2>
-                <div class="flex text-gray-700 max-w-6xl p-6  border border-gray-700 rounded-lg">
+                <div class="flex text-gray-700 max-w-6xl p-6  border border-gray-700 rounded-lg justify-between">
                     <p class="mb-4">
-                        {{ $summary ?? 'An marketing seeking an opportunity that offers the creative andAn marketing seeking an opportunity that offers the creative andAn marketing seeking an opportunity that offers the creative andAn marketing seeking an opportunity that offers the creative and challenging functionality especially mean and meet clients demands.' }}
+                        {{ $personalSummary ?? 'Edit me.' }}
                     </p>
                     <div>
-                        <button>
+                        <button onclick="openModal('editPersonalSummary')">
                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 13.6571V16.5278C0 16.7922 0.20775 17 0.472158 17H3.34288C3.46564 17 3.5884 16.9528 3.67339 16.8584L13.9853 6.55586L10.4441 3.01468L0.141648 13.3172C0.0472159 13.4116 0 13.5249 0 13.6571ZM16.7238 3.81735C16.8114 3.72998 16.8808 3.62621 16.9282 3.51198C16.9756 3.39774 17 3.27528 17 3.1516C17 3.02793 16.9756 2.90547 16.9282 2.79123C16.8808 2.67699 16.8114 2.57322 16.7238 2.48586L14.5141 0.27616C14.4268 0.188618 14.323 0.119166 14.2088 0.0717788C14.0945 0.0243917 13.9721 0 13.8484 0C13.7247 0 13.6023 0.0243917 13.488 0.0717788C13.3738 0.119166 13.27 0.188618 13.1827 0.27616L11.4546 2.00426L14.9957 5.54544L16.7238 3.81735Z" fill="black"/>
                         </svg>
@@ -71,16 +58,27 @@
                     <h2 class="text-3xl font-semibold text-gray-800 mb-4 pb-2">Career History</h2>
                 </div>
                 
-                @if(isset($careers) && count($careers) > 0)
-                    @foreach($careers as $career)
-                    <div class="text-gray-700 max-w-6xl p-5 border border-gray-700 rounded-lg">
+                @if(isset($careerHistory) && count($careerHistory) > 0)
+                    @foreach($careerHistory as $career)
+                    <div class="text-gray-700 max-w-6xl p-6 border border-gray-700 rounded-lg">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="text-xl font-semibold text-gray-800">{{ $career['title'] }}</h3>
-                            <span class="text-gray-600 text-sm cursor-pointer">✏️</span>
+                            <div>
+                                <button onclick="openModal('editRole')">
+                                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 13.6571V16.5278C0 16.7922 0.20775 17 0.472158 17H3.34288C3.46564 17 3.5884 16.9528 3.67339 16.8584L13.9853 6.55586L10.4441 3.01468L0.141648 13.3172C0.0472159 13.4116 0 13.5249 0 13.6571ZM16.7238 3.81735C16.8114 3.72998 16.8808 3.62621 16.9282 3.51198C16.9756 3.39774 17 3.27528 17 3.1516C17 3.02793 16.9756 2.90547 16.9282 2.79123C16.8808 2.67699 16.8114 2.57322 16.7238 2.48586L14.5141 0.27616C14.4268 0.188618 14.323 0.119166 14.2088 0.0717788C14.0945 0.0243917 13.9721 0 13.8484 0C13.7247 0 13.6023 0.0243917 13.488 0.0717788C13.3738 0.119166 13.27 0.188618 13.1827 0.27616L11.4546 2.00426L14.9957 5.54544L16.7238 3.81735Z" fill="black"/>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
-                        <p class="text-sm text-gray-600 mb-2">{{ $carreer['position'] ?? 'Position' }}|{{$career['duration'] ?? 'Duration' }}</p>
+                        <p class="text-sm text-gray-600 mb-2">
+                            {{ $career['position'] ?? 'Position' }} |
+                            {{ \Carbon\Carbon::parse($career['start_date'])->format('F, Y') }}
+                            -
+                            {{ isset($career['end_date']) ? \Carbon\Carbon::parse($career['end_date'])->format('F, Y') : 'Present' }}
+                        </p>
                         <p class="text-gray-700 text-sm leading-relaxed">
-                            {{ $career['description'] }}
+                            {{ $career['description']}}
                         </p>
                     </div>
                     @endforeach
@@ -89,7 +87,7 @@
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="text-xl font-semibold text-gray-800">Assistant Video Editor</h3>
                             <div>
-                                <button>
+                                <button onclick="openModal('editRole')">
                                     <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M0 13.6571V16.5278C0 16.7922 0.20775 17 0.472158 17H3.34288C3.46564 17 3.5884 16.9528 3.67339 16.8584L13.9853 6.55586L10.4441 3.01468L0.141648 13.3172C0.0472159 13.4116 0 13.5249 0 13.6571ZM16.7238 3.81735C16.8114 3.72998 16.8808 3.62621 16.9282 3.51198C16.9756 3.39774 17 3.27528 17 3.1516C17 3.02793 16.9756 2.90547 16.9282 2.79123C16.8808 2.67699 16.8114 2.57322 16.7238 2.48586L14.5141 0.27616C14.4268 0.188618 14.323 0.119166 14.2088 0.0717788C14.0945 0.0243917 13.9721 0 13.8484 0C13.7247 0 13.6023 0.0243917 13.488 0.0717788C13.3738 0.119166 13.27 0.188618 13.1827 0.27616L11.4546 2.00426L14.9957 5.54544L16.7238 3.81735Z" fill="black"/>
                                     </svg>
@@ -105,12 +103,12 @@
                 @endif
 
                 <!-- Add Career Button -->
-                <button class="text-orange-500 text-sm font-medium hover:text-orange-600">
+                <button onclick="openModal('addRole')" class="text-orange-500 text-sm font-medium hover:text-orange-600">
                     + Add Career
                 </button>
             </section>
 
-            <!-- Education -->
+            <!-- Education  -->
             <section class="mb-8 mx-10">
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-3xl font-semibold text-gray-800 mb-4 pb-2">Education</h2>
@@ -141,12 +139,12 @@
                     </div>
                 @endif
 
-                <!-- Add Education Button -->
+
                 <button class="text-orange-500 text-sm font-medium hover:text-orange-600">
                     + Add Education
                 </button>
             </section>
-
+            
             <!-- Certifications -->
             <section class="mb-8 mx-10">
                 <div class="flex items-center justify-between mb-4">
@@ -154,12 +152,18 @@
                 </div>                
                 @if(isset($certifications) && count($certifications) > 0)
                     @foreach($certifications as $cert)
-                    <div class="mb-4 p-4 border-l-4 border-orange-400 bg-orange-50">
+                    <div class="mb-4 p-6 border border-gray-700 rounded-lg">
                         <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-semibold text-gray-800">{{ $cert['name'] }}</h3>
-                            <span class="text-gray-600 text-sm cursor-pointer">✏️</span>
+                            <h3 class="font-semibold text-gray-800 text-lg">{{ $cert['cert_name'] }}</h3>
+                                <div>
+                                    <button>
+                                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 13.6571V16.5278C0 16.7922 0.20775 17 0.472158 17H3.34288C3.46564 17 3.5884 16.9528 3.67339 16.8584L13.9853 6.55586L10.4441 3.01468L0.141648 13.3172C0.0472159 13.4116 0 13.5249 0 13.6571ZM16.7238 3.81735C16.8114 3.72998 16.8808 3.62621 16.9282 3.51198C16.9756 3.39774 17 3.27528 17 3.1516C17 3.02793 16.9756 2.90547 16.9282 2.79123C16.8808 2.67699 16.8114 2.57322 16.7238 2.48586L14.5141 0.27616C14.4268 0.188618 14.323 0.119166 14.2088 0.0717788C14.0945 0.0243917 13.9721 0 13.8484 0C13.7247 0 13.6023 0.0243917 13.488 0.0717788C13.3738 0.119166 13.27 0.188618 13.1827 0.27616L11.4546 2.00426L14.9957 5.54544L16.7238 3.81735Z" fill="black"/>
+                                        </svg>
+                                    </button>
+                                </div>
                         </div>
-                        <p class="text-sm text-gray-600">{{ $cert['issuer'] ?? '' }} • {{ $cert['date'] ?? 'Date Issued' }}</p>
+                        <p class="text-sm text-gray-600">{{$cert['year'] }} | {{ $cert['term'] }}</p>
                     </div>
                     @endforeach
                 @else
@@ -179,13 +183,16 @@
                 @endif
 
                 <!-- Add Certification Button -->
-                <button class="text-orange-500 text-sm font-medium hover:text-orange-600">
+                <button onclick="openModal('addCert')" class="text-orange-500 text-sm font-medium hover:text-orange-600">
                     + Add Certification
                 </button>
             </section>
         </div>
         <x-modals.user.addEditProfile/>
-        <x-modals.modalall/>
+        <x-modals.user.editPersonalSummary/>
+        <x-modals.user.addRole/>
+        <x-modals.user.editRole/>
+        <x-modals.user.addCertification/>
     </div>
 </x-user-layout>
 

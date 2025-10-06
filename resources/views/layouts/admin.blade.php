@@ -18,7 +18,13 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-[#F3F3F3] flex max-w-screen">
             @include('layouts.navigation')
-
+            @if(session('success')){
+                <x-sweetAlert.admin-message title="Success" message="Student record created successfully." type="success"/>
+            }
+            @elseif(session('error')){
+                <x-sweetAlert.admin-message title="Error" message="{{ session('error') }}" type="error"/>
+            }
+            @endif
             <!-- Page Content -->
             <main class="w-full">
                 {{ $slot }}

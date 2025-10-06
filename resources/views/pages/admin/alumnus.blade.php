@@ -96,7 +96,7 @@
                     :showPagination="true"
                 />
             </div>
-            <x-modals.addStudent :selectedCourse="$selectedCourse" :courses="$courses"/>
+            <x-modals.admin.addStudent :selectedCourse="$selectedCourse" :courses="$courses"/>
         </div>
     </div>
 </x-admin-layout>
