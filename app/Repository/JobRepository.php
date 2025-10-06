@@ -32,5 +32,23 @@ class JobRepository implements JobRepositoryInterface
         
     }
 
+    public function findCareerHistoryById($userId)
+    {
+
+        return Job::where('user_id', $userId)
+                    ->select(
+                        'job_id',
+                        'position',
+                        'occupation',
+                        'start_date',
+                        'end_date',
+                        'description',
+                    )
+                    ->get();
+
+    }
+
+
+
     
 }

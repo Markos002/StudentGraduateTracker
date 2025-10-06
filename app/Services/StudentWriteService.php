@@ -4,9 +4,9 @@ namespace App\Services;
 
 use App\Interfaces\Repository\AchievementRepositoryInterface;
 use App\Interfaces\Repository\JobRepositoryInterface;
-use App\Interfaces\Services\JobServiceInterface;
+use App\Interfaces\Services\StudentWriteServiceInterface;
 
-class JobService implements JobServiceInterface
+class StudentWriteService implements StudentWriteServiceInterface
 {
 
 

@@ -11,5 +11,7 @@ interface JobRepositoryInterface
     public function store($data);
 
     public function update($data);
+
+    public function findCareerHistoryById($userId);
     
 }

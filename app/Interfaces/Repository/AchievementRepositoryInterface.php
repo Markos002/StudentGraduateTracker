@@ -11,5 +11,9 @@ interface AchievementRepositoryInterface
 
     public function update($data);
 
+    public function findPersonalSummaryById($userId);
+
+    public function getCertificateListById($userId);
+
 
 }

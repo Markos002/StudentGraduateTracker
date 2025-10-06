@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController\InsightController;
 use App\Http\Controllers\AdminController\StudentController;
 use App\http\Controllers\StudentController\StudentDashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentController\StudentProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,11 +26,16 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
     
     //POST//
     Route::post('/student/add', [StudentController::class,'store'])->name('admin.student.add');
+
 });
 
 Route::prefix('student')->middleware(['auth', 'role:User'])->group(function () {
 
     Route::get('/dashboard', [StudentDashboardController::class, 'dashboard'])->name('student.dashboard');
+    Route::post('/personal-summary/add', [StudentProfileController::class, 'storePersonalSummary'])->name('student.add.personalSummary');
+    Route::post('/career-history/add',[StudentProfileController::class, 'storeCareerHistory'])->name('student.add.careerHistory');
+    Route::post('/certification/add', [StudentProfileController::class, 'storeCertifications'])->name('student.add.certification');
+
 });
 
 Route::get('/user', function () {

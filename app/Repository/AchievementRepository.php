@@ -28,5 +28,28 @@ class AchievementRepository implements AchievementRepositoryInterface
 
         return $find->update($data);
 
-    }   
+    }
+
+
+    public function findPersonalSummaryById($userId)
+    {
+
+        return Achievements::where('user_id', $userId)
+                       ->latest()
+                       ->value('personal_summary');
+    }
+
+    public function getCertificateListById($userId)
+    {
+
+        return Achievements::where('user_id', $userId)
+                       ->select(
+                          'job_id',
+                          'cert_name',
+                          'year',
+                          'term',
+                       )
+                       ->get();
+    }
+
 }

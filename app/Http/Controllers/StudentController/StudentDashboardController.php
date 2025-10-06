@@ -3,16 +3,30 @@
 namespace App\Http\Controllers\StudentController;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Interfaces\Services\StudentReadServiceInterface;
+use App\Services\StudentReadService;
 
 class StudentDashboardController extends Controller
 {
+
+    public function __construct(
+        protected StudentReadServiceInterface $studentReadService,
+    ){}
     
 
     public function dashboard()
     {
 
-        return view('pages.student.dashboard');
+        $personalSummary = $this->studentReadService->readPersonalSummary();
+        $careerHistory   = $this->studentReadService->readCareerHistory();
+        $certifications  = $this->studentReadService->readCertifications();
+
+        return view('pages.student.dashboard', compact(
+            'personalSummary',
+            'careerHistory',
+            'certifications'
+        ));
+        
         
     }
 

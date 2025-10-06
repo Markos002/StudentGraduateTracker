@@ -2,7 +2,7 @@
 
 namespace App\Interfaces\Services;
 
-interface JobServiceInterface
+interface StudentWriteServiceInterface
 {
 
     public function writePersonalSummary($data);
