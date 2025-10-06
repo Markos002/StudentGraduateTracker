@@ -43,12 +43,12 @@ class AchievementRepository implements AchievementRepositoryInterface
     {
 
         return Achievements::where('user_id', $userId)
-                       ->select(
-                          'job_id',
+                       ->select([
+                          'achievemet_id',
                           'cert_name',
                           'year',
                           'term',
-                       )
+                       ])
                        ->get();
     }
 
