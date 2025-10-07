@@ -16,8 +16,9 @@ class Job extends Model
         'company_name',
         'occupation',
         'occupation_status',
-        'occupation_alignment',
+        'course_alignment',
         'salary',
+        'description',
         'start_date',
         'end_date'
     ];

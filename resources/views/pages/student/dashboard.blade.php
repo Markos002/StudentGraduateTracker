@@ -40,7 +40,7 @@
                 <h2 class="text-3xl font-semibold text-gray-800 mb-4 pb-2">Personal Summary</h2>
                 <div class="flex text-gray-700 max-w-6xl p-6  border border-gray-700 rounded-lg justify-between">
                     <p class="mb-4">
-                        {{ $personalSummary ?? 'Edit me.' }}
+                        {{ $personalSummary ?? 'Working' }}
                     </p>
                     <div>
                         <button onclick="openModal('editPersonalSummary')">

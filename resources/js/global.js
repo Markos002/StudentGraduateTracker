@@ -26,7 +26,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-    const numberFields = ["student_id", "batch_graduate", "tor_number"];
+    const numberFields = ["student_id", "batch_graduate", "tor_number","year"];
 
     numberFields.forEach(id => {
         const input = document.getElementById(id);

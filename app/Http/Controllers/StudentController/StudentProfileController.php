@@ -38,8 +38,8 @@ class StudentProfileController extends Controller
     {
 
         $validated = $request->validate([
-                     'position' => 'nullable|string',
-                     'occupation' => 'nullable|string',
+                     'position' => 'nullable|string', // Position
+                     'occupation' => 'nullable|string', // Job
                      'occupation_status' => 'nullable|string', //please pass [employed,Unemployed]
                      'course_alignment' => 'nullable|string', // please pass [aligned,notAlinged]
                      'description' => 'nullable|string',
@@ -64,7 +64,7 @@ class StudentProfileController extends Controller
 
         $validated = $request->validate([
                       'cert_name' => 'nullable|string',
-                      'year'      => 'nulalble|string',
+                      'year'      => 'nullable|string',
                       'term'      => 'nullable|string',
         ]);
         $validated['user_id'] = $this->authId();

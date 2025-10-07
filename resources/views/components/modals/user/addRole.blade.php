@@ -1,5 +1,5 @@
 <div id="addRole" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-5 z-50">
-    <div class=" bg-white rounded-lg w-full max-w-lg h-full overflow-y-auto max-h-[20rem]lg:h-full lg:max-h-[40rem] p-8">
+    <div class=" bg-white rounded-lg w-full max-w-lg h-full overflow-y-auto max-h-[20rem] lg:h-full lg:max-h-[40rem] p-8">
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-lg font-semibold text-black">Add Role</h2>
             <button onclick="closeModal('addRole')" class="text-gray-600 hover:text-gray-900">
@@ -7,23 +7,41 @@
             </button>
         </div>
 
-        <form class="gap-2 text-black text-sm">
+        <form method="POST" action="{{ route('student.add.careerHistory') }}" class="gap-2 text-black text-sm">
+            @csrf
             <!-- Job Title -->
-            <x-inputs.modal-input 
+            <x-inputs.modal-input
                 type="text"
-                id="job_title"
-                name="job_title"
+                id="occupation"
+                name="occupation"
                 label="Job Title"
                 placeholder="Enter Job Title"
             />
 
-            <!-- Company Name -->
+            <!-- Position Name -->
             <x-inputs.modal-input 
                 type="text"
-                id="company_name"
-                name="company_name"
-                label="Company Name"
-                placeholder="Enter Company Name"
+                id="position"
+                name="position"
+                label="Position"
+                placeholder="Enter Position"
+            />
+            <!-- Occupation Status -->
+            <x-inputs.select-input 
+                id="occupation_status" 
+                name="occupation_status" 
+                label="Occupation Status" 
+                :options="['','Employed','Unemployed']" 
+                selected=""
+            />
+
+            <!-- Course Alingment -->
+            <x-inputs.select-input 
+                id="course_alignment" 
+                name="course_alignment" 
+                label="Course Alignment" 
+                :options="['','Aligned','Not Aligned']" 
+                selected=""
             />
 
             <!-- Started -->
