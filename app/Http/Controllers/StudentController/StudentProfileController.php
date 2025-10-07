@@ -21,7 +21,7 @@ class StudentProfileController extends Controller
         $validated = $request->validate([
                     'personal_summary' => 'nullable|string'
         ]);
-
+        $validated['user_id'] = $this->authId();
         try{
 
             $this->studentWriteServiceInterface->writePersonalSummary($validated); 

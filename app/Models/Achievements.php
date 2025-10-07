@@ -12,7 +12,7 @@ class Achievements extends Model
     public $incrementing = true;
 
     protected $fillable = [
-
+        'user_id',
         'personal_summary',
         'cert_name',
         'year',
