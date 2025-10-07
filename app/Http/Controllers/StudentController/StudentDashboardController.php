@@ -16,9 +16,9 @@ class StudentDashboardController extends Controller
 
     public function dashboard()
     {
-
+        
         $personalSummary = $this->studentReadService->readPersonalSummary();
-        $careerHistory   = $this->studentReadService->readCareerHistory();
+        $careerHistory   = $this->studentReadService->readCareerHistory();  
         $certifications  = $this->studentReadService->readCertifications();
 
         return view('pages.student.dashboard', compact(
