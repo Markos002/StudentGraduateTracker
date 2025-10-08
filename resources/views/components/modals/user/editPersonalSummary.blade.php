@@ -13,9 +13,9 @@
                 <p class="text-xs">Highlight your unique experiences, ambitions and strengths.</p>
                 <textarea name="personal_summary" 
                             id="personal_summary"
-                          rows="3"
-                          placeholder="Write your experience here..." 
-                          class="w-full px-3 py-2 border border-black rounded-md focus:outline-none focus:ring-1 focus:ring-gray-700 focus:border-transparent resize-none"></textarea>
+                            rows="3"
+                            placeholder="Write your experience here..." 
+                            class="w-full px-3 py-2 border border-black rounded-md focus:outline-none focus:ring-1 focus:ring-gray-700 focus:border-transparent resize-none">{{ old('personal_summary', $value->first()->personal_summary ?? '') }}</textarea>
                 <p class="text-xs text-gray-500 mt-1">Write your summary here. Use at most 10 000 characters.</p>
             </div>
             

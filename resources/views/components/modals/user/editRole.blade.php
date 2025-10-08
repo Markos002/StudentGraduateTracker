@@ -1,5 +1,5 @@
 <div id="editRole" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-5 z-50">
-    <div class=" bg-white rounded-lg w-full max-w-lg h-full overflow-y-auto max-h-[20rem]lg:h-full lg:max-h-[40rem] p-8">
+    <div class=" bg-white rounded-lg w-full max-w-lg h-full overflow-y-auto max-h-[20rem] lg:h-full lg:max-h-[40rem] p-8">
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-lg font-semibold text-black">Edit Role</h2>
             <button onclick="closeModal('editRole')" class="text-gray-600 hover:text-gray-900">
@@ -7,23 +7,43 @@
             </button>
         </div>
 
-        <form class="gap-2 text-black text-sm">
+        <form method="POST" action="" class="gap-2 text-black text-sm">
+            @csrf
+
+            <input type="hidden" id="edit_id" name="job_id">
             <!-- Job Title -->
-            <x-inputs.modal-input 
+            <x-inputs.modal-input
                 type="text"
-                id="job_title"
-                name="job_title"
+                id="edit_occupation"
+                name="occupation"
                 label="Job Title"
                 placeholder="Enter Job Title"
             />
 
-            <!-- Company Name -->
+            <!-- Position Name -->
             <x-inputs.modal-input 
                 type="text"
-                id="company_name"
-                name="company_name"
-                label="Company Name"
-                placeholder="Enter Company Name"
+                id="edit_position"
+                name="position"
+                label="Position"
+                placeholder="Enter Position"
+            />
+            <!-- Occupation Status -->
+            <x-inputs.select-input 
+                id="edit_occupation_status" 
+                name="occupation_status" 
+                label="Occupation Status" 
+                :options="['','Employed','Unemployed']" 
+                selected=""
+            />
+
+            <!-- Course Alingment -->
+            <x-inputs.select-input 
+                id="edit_course_alignment" 
+                name="course_alignment" 
+                label="Course Alignment" 
+                :options="['','Aligned','Not Aligned']" 
+                selected=""
             />
 
             <!-- Started -->
@@ -32,7 +52,7 @@
                 <input 
                     type="date" 
                     name="start_date" 
-                    id="start_date"
+                    id="edit_start_date"
                     class="w-full px-3 py-2 border border-black rounded-md focus:outline-none focus:ring-0 focus:border-black"
                 >
             </div>
@@ -43,7 +63,7 @@
                 <input 
                     type="date" 
                     name="end_date" 
-                    id="end_date"
+                    id="edit_end_date"
                     class="w-full px-3 py-2 border border-black rounded-md focus:outline-none focus:ring-0 focus:border-black"
                 >
             </div>
@@ -52,9 +72,8 @@
             <div class="flex items-center gap-2 mt-2 ">
                 <input 
                     type="checkbox" 
-                    id="untilNow" 
+                    id="edit_untilNow" 
                     class="w-4 h-4 text-orange-500 focus:ring-orange-500 border-black rounded" 
-                    onchange="toggleEndedVisibility()"
                 >
                 <label for="untilNow" class="text-sm text-gray-700">Until now</label>
             </div>
@@ -62,7 +81,8 @@
             <!-- Description -->
             <div class="text-black space-y-4 mt-4">
                 <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                <textarea 
+                <textarea
+                    id="edit_description"
                     name="description" 
                     rows="3"
                     placeholder="Write your experience here..." 
@@ -81,18 +101,3 @@
         </form>
     </div>
 </div>
-
-<script>
-    function toggleEndedVisibility() {
-        const checkbox = document.getElementById('untilNow');
-        const endedField = document.getElementById('endField');
-        const endDateInput = document.getElementById('end_date');
-
-        if (checkbox.checked) {
-            endedField.classList.add('hidden');
-            endDateInput.value = ''; 
-        } else {
-            endedField.classList.remove('hidden');
-        }
-    }
-</script>

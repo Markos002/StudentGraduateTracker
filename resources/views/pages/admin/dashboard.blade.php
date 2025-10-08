@@ -12,7 +12,7 @@
             <div class="flex justify-between bg-white rounded-lg shadow px-6 py-8">
                 <div class="space-y-5">
                     <h2 class="text-lg font-semibold ">Registered Students</h2>
-                    <p class="text-3xl font-bold ">{{ $totalStudents }}</p>
+                    <p class="text-3xl font-bold ">{{ $totalStudents ?? '0'}}</p>
                 </div>
                 <div class="h-full place-content-center">
                     <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[#8FE5A6]">
@@ -25,7 +25,7 @@
             <div class="flex justify-between bg-white rounded-lg shadow px-6 py-8">
                 <div class="space-y-5">
                     <h2 class="text-lg font-semibold ">Total Graduates</h2>
-                    <p class="text-3xl font-bold ">{{ $totalGraduates }}</p>
+                    <p class="text-3xl font-bold ">{{ $totalGraduates ?? '0' }}</p>
                 </div>
                 <div class="h-full place-content-center">
                     <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[#8FE5A6]">
@@ -38,7 +38,7 @@
             <div class="flex justify-between bg-white rounded-lg shadow px-6 py-8">
                 <div class="space-y-5">
                     <h2 class="text-lg font-semibold ">Employed</h2>
-                    <p class="text-3xl font-bold ">{{ $totalGraduates }}</p>
+                    <p class="text-3xl font-bold ">{{ $employmentStats['Employed'] ?? '0'}}</p>
                 </div>
                 <div class="h-full place-content-center">
                     <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[#8FE5A6]">
@@ -50,7 +50,7 @@
             <div class="flex justify-between bg-white rounded-lg shadow px-6 py-8">
                 <div class="space-y-5">
                     <h2 class="text-lg font-semibold ">Unemployed</h2>
-                    <p class="text-3xl font-bold ">{{ $totalGraduates }}</p>
+                    <p class="text-3xl font-bold ">{{ $employmentStats['Unemployed'] ?? '0' }}</p>
                 </div>
                 <div class="h-full place-content-center">
                     <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[#8FE5A6]">
@@ -58,6 +58,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="">
+            <x-analytics.bargraph-dashboard/>
         </div>
     </div>
 </x-admin-layout>

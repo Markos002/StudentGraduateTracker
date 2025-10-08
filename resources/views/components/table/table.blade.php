@@ -36,6 +36,8 @@
                                     $cellClass .= ' bg-[#CDCDCD] text-black font-bold';
                                 } elseif ($pointerCell === 'unemployed') {
                                     $cellClass .= ' bg-[#FFE83A] text-black font-bold';
+                                }else {
+                                    $cellClass .= ' bg-[#FFE83A] text-black font-bold';
                                 }
                             }
                             if (str_contains($headerName, 'course alignment')) {

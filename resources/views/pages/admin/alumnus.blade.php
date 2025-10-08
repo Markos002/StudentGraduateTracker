@@ -86,11 +86,10 @@
                     :headers="['Full Name', 'Occupation', 'Course', 'Occupation Status', 'Course Alignment']"
                     :rows="$alumnusList->map(fn($alumnuslist) => [
                         'fullname' => $alumnuslist->full_name,
-                        'occupation' =>  $alumnuslist->job->occupation ?? 'N/A',
+                        'occupation' =>  $alumnuslist->job->occupation ?? '',
                         'course' =>  $alumnuslist->course,
-                        'occupationstatus' =>  $alumnuslist->job->occupation_status ?? 'N/A',
-                        'coursealignment' =>  $alumnuslist->job->course_alignment ?? 'N/A',
-                        
+                        'occupationstatus' =>  $alumnuslist->job->occupation_status ?? 'Unemployed',
+                        'coursealignment' =>  $alumnuslist->job->course_alignment ?? '',
                     ])"
                     :paginator="$alumnusList"
                     :showPagination="true"
