@@ -35,8 +35,13 @@ class AchievementRepository implements AchievementRepositoryInterface
     {
 
         return Achievements::where('user_id', $userId)
+                       ->select([
+                         'achievement_id',
+                         'personal_summary'
+                       ])
                        ->latest()
-                       ->value('personal_summary');
+                       ->get();
+                       
     }
 
     public function getCertificateListById($userId)

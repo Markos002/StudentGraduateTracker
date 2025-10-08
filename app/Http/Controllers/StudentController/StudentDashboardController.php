@@ -20,11 +20,13 @@ class StudentDashboardController extends Controller
         $personalSummary = $this->studentReadService->readPersonalSummary();
         $careerHistory   = $this->studentReadService->readCareerHistory();  
         $certifications  = $this->studentReadService->readCertifications();
+        $personalDetail  = $this->studentReadService->personalDetails();
 
         return view('pages.student.dashboard', compact(
             'personalSummary',
             'careerHistory',
-            'certifications'
+            'certifications',
+            'personalDetail'
         ));
         
         

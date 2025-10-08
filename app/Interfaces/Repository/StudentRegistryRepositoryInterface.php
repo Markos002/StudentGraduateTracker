@@ -10,4 +10,6 @@ interface StudentRegistryRepositoryInterface
     public function getAlumnus($year, $course);
 
     public function getMasterList($year);
+
+
 }

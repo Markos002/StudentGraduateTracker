@@ -10,4 +10,6 @@ interface StudentReadServiceInterface
     public function readCareerHistory();
 
     public function readCertifications();
+
+    public function personalDetails();
 }

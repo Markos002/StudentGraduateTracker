@@ -9,12 +9,11 @@ class RegisterRequestSession
 {
 
     public function __construct(
-        protected RegisterServiceInterface $registerService,
         protected SessionManager $sessionManager
 
         ){}
 
-    public function validateRegisterSessionExist($studentId)
+    public function validateRegisterSessionExist()
     {
 
         $session = $this->sessionManager->get('registerUser');

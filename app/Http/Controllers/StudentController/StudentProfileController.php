@@ -16,6 +16,28 @@ class StudentProfileController extends Controller
     ){}
 
 
+    public function updatePersonalDetails(Request $request)
+    {
+
+        $validated = $request->validate([
+                    'first_name' => 'sometimes|string',
+                    'last_name'  => 'sometimes|string',
+                    'email'      => 'sometimes|string',
+                    'phone'      => 'sometimes|string|regex:/^09\d{9}$/',
+                    'address'    => 'sometimes|string',
+        ]);
+        $validated['user_id'] = $this->authId();
+        
+        try{
+
+
+        }catch(\Exception $e){
+
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+
+    }
+
     public function storePersonalSummary(Request $request)
     {
         $validated = $request->validate([

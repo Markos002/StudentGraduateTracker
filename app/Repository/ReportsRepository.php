@@ -24,7 +24,7 @@ class ReportsRepository implements ReportsRepositoryInterface
     { 
         $year = now()->year;
         
-        return DB::table('list_data')
+        return DB::table('master_lists')
                     ->where('batch_graduate', $year)
                     ->count();
 
@@ -100,7 +100,7 @@ class ReportsRepository implements ReportsRepositoryInterface
                 ->first();
 
 
-         $graduateCount = DB::table('list_data')
+         $graduateCount = DB::table('master_lists')
             ->where('course_graduate', $course)
             ->where('batch_graduate', $year)
             ->count();

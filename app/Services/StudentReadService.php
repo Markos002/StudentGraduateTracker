@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Interfaces\Repository\AchievementRepositoryInterface;
 use App\Interfaces\Repository\JobRepositoryInterface;
+use App\Interfaces\Repository\UserDataRepositoryInterface;
 use App\Interfaces\Services\StudentReadServiceInterface;
 use App\Traits\GetAuthId;
 
@@ -13,8 +14,9 @@ class StudentReadService implements StudentReadServiceInterface
     use GetAuthId;
 
     public function __construct(
-        protected AchievementRepositoryInterface $achievementRepositoryInterface,
-        protected JobRepositoryInterface $jobRepositoryInterface,
+        protected AchievementRepositoryInterface $achievementRepository,
+        protected JobRepositoryInterface $jobRepository,
+        protected UserDataRepositoryInterface $userDataRepository
     ){}
 
     public function readPersonalSummary()
@@ -22,7 +24,7 @@ class StudentReadService implements StudentReadServiceInterface
 
         $userId = $this->authId();
 
-        return $this->achievementRepositoryInterface->findPersonalSummaryById($userId);
+        return $this->achievementRepository->findPersonalSummaryById($userId);
 
     }
 
@@ -31,7 +33,7 @@ class StudentReadService implements StudentReadServiceInterface
 
         $userId = $this->authId();
 
-        return $this->jobRepositoryInterface->findCareerHistoryById($userId);
+        return $this->jobRepository->findCareerHistoryById($userId);
 
     }
 
@@ -40,8 +42,16 @@ class StudentReadService implements StudentReadServiceInterface
 
         $userId = $this->authId();
 
-        return $this->achievementRepositoryInterface->getCertificateListById($userId);
+        return $this->achievementRepository->getCertificateListById($userId);
 
+    }
+
+    public function personalDetails()
+    {
+
+        $userId = $this->authId();
+        return $this->userDataRepository->getPersonalDetails($userId);
+        
     }
     
 }

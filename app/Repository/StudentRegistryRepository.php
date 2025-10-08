@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Interfaces\Repository\StudentRegistryRepositoryInterface;
 use App\Models\User;
-use App\Models\ListData;
+use App\Models\MasterList;
 use Illuminate\Support\Facades\DB;
 
 
@@ -15,7 +15,7 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
     public function getStudentByYearAndCourse($year, $course)
     {
          
-         return ListData::select(
+         return MasterList::select(
                   'id',
                   'student_id',
                   'tor_number',
@@ -46,7 +46,7 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
     public function getMasterList($year)
     {
         
-        return ListData::select(
+        return MasterList::select(
                'id',
                'student_id',
                DB::raw("CONCAT(last_name, ', ', first_name) as full_name"),

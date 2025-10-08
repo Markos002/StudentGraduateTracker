@@ -25,7 +25,7 @@ class RegisterUserConfirmController extends Controller
 
         try {
 
-            $session = $this->registerRequestSession->validateRegisterSessionExist($studentId);
+            $session = $this->registerRequestSession->validateRegisterSessionExist();
 
               if(empty($session)){
                 return redirect()->route('register');

@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
+use App\Interfaces\Repository\MasterListRepositoryInterface;
 use App\Interfaces\Services\StudentRecordServiceInterface;
-use App\Interfaces\Repository\ListDataRepositoryInterface;
 use App\Interfaces\Repository\StudentRegistryRepositoryInterface;
 use App\Traits\CourseMapping;
 class StudentRecordService implements StudentRecordServiceInterface
@@ -14,7 +14,7 @@ class StudentRecordService implements StudentRecordServiceInterface
 
     public function __construct(
         protected StudentRegistryRepositoryInterface $studentRegistryRepositoryInterface,
-        protected ListDataRepositoryInterface $listDataRepositoryInterface,
+        protected MasterListRepositoryInterface $masterListRepository,
     ){}
     
     public function studentList($year, $course)

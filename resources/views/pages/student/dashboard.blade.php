@@ -39,9 +39,11 @@
             <section class="mb-8 mx-10">
                 <h2 class="text-3xl font-semibold text-gray-800 mb-4 pb-2">Personal Summary</h2>
                 <div class="flex text-gray-700 max-w-6xl p-6  border border-gray-700 rounded-lg justify-between">
-                    <p class="mb-4">
-                        {{ $personalSummary ?? ' ' }}
-                    </p>
+                    @foreach ($personalSummary as $summary )
+                      <p class="mb-4">
+                        {{ $summary['personal_summary'] ?? ' ' }}
+                       </p>
+                    @endforeach
                     <div>
                         <button onclick="openModal('editPersonalSummary')">
                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">

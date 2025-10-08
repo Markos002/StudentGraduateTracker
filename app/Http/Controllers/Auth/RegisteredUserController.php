@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Interfaces\Services\Auth\CheckStudentIfExistServiceInterface;
 use App\Interfaces\Services\Auth\RegisterServiceInterface;
 use App\Security\RegisterRequestSession;
 use App\Support\SessionManager;
@@ -15,9 +16,9 @@ class RegisteredUserController extends Controller
 
     use RegisterUserSessionGet;
     public function __construct(
-        protected RegisterServiceInterface $registerUserService,
         protected RegisterRequestSession $registerRequestSession,
         protected SessionManager $sessionManager,
+        protected CheckStudentIfExistServiceInterface $checkStudentIfExistService,
         
      ){}
    
@@ -42,12 +43,10 @@ class RegisteredUserController extends Controller
 
         try {
 
-            $student = $this->registerUserService->validate($validated);
-        
-            $this->registerUserService->registerSessionFromStudent($student);    
-            $studentData = $this->getSession();
-            $studentId = $studentData['studentId'];
-
+            $student = $this->checkStudentIfExistService->checkIfExist($validated);
+            $this->checkStudentIfExistService->storeRegistrationSession($student);      
+            $studentId = $this->getSession()['studentId'];
+            
             return redirect()->route('register-confirm', ['studentId' => $studentId])
                 ->with('success', "Student ID verified. Please complete your registration.");
 

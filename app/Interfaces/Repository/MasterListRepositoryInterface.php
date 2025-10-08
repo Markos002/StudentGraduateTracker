@@ -2,7 +2,7 @@
 
 namespace App\Interfaces\Repository;
 
-interface ListDataRepositoryInterface
+interface MasterListRepositoryInterface
 {
 
     public function findByStudentId($studentId);

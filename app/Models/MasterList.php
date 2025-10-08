@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ListData extends Model
+class MasterList extends Model
 {
     
     protected $fillable = [

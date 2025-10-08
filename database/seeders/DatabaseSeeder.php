@@ -30,6 +30,22 @@ class DatabaseSeeder extends Seeder
             'created_at'     => now(),
             'updated_at'     => now(),
         ]);
-       
+        User::create([
+            'user_id'        => 3, // if auto-increment, you can omit this
+            'last_name'      => 'tayone',
+            'first_name'     => 'John',
+            'student_id'     => '3220231',
+            'address'        => 'Cebu City, Philippines',
+            'email'          => 'admin@example.com',
+            'phone'          => '09123456789',
+            'password'       => Hash::make('admin123'), // secure hash
+            'tor_number'     => '123456',
+            'course'         => 'BSIT',
+            'year_graduate'  => '2025',
+            'status'         => 'active',
+            'role'           => 'User',
+            'created_at'     => now(),
+            'updated_at'     => now(),
+        ]);
     }
 }

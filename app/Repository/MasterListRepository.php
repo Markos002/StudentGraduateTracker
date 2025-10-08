@@ -2,17 +2,17 @@
 
 namespace App\Repository;
 
-use App\Interfaces\Repository\ListDataRepositoryInterface;
-use App\Models\ListData;
+use App\Interfaces\Repository\MasterListRepositoryInterface;
+use App\Models\MasterList;
 
-class ListDataRepository implements ListDataRepositoryInterface
+class MasterListRepository implements MasterListRepositoryInterface
 {
 
 
     public function findByStudentId($studentId)
     {
 
-        return ListData::where('student_id', $studentId)
+        return MasterList::where('student_id', $studentId)
                        ->first();
 
     }
@@ -20,14 +20,14 @@ class ListDataRepository implements ListDataRepositoryInterface
     public function findById($id)
     {
 
-        return ListData::findOrFail($id);
+        return MasterList::findOrFail($id);
                        
     }
 
     public function create($data)
     {
 
-        return ListData::create($data);
+        return MasterList::create($data);
 
     }
 

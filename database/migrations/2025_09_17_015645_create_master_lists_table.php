@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('list_data', function (Blueprint $table) {
+        Schema::create('master_lists', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('student_id');
             $table->string('last_name', 50)->nullable();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('list_data');
+        Schema::dropIfExists('master_lists');
     }
 };

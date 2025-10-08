@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Interfaces\Repository\ListDataRepositoryInterface;
+use App\Interfaces\Repository\MasterListRepositoryInterface;
 use App\Interfaces\Services\StudentRegistryServiceInterface;
 use Exception;
 
@@ -11,7 +12,7 @@ class StudentRegistryService implements StudentRegistryServiceInterface
 
   
     public function __construct(
-        protected ListDataRepositoryInterface $listDataRepositoryInterface
+        protected MasterListRepositoryInterface $listDataRepositoryInterface
     ){}
     public function addNewGraduate($data)
     {
@@ -39,4 +40,5 @@ class StudentRegistryService implements StudentRegistryServiceInterface
         return $this->listDataRepositoryInterface->update($data);
         
     }
+
 }

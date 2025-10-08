@@ -30,6 +30,13 @@ class UserRepository implements UserRepositoryInterface
 
     }
 
+    public function checkIfAlreadyExist($studentId)
+    {
+
+        return User::where('student_id', $studentId)->exists();
+        
+    }
+
     public function update($data)
     {
 
