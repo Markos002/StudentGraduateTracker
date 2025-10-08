@@ -52,6 +52,8 @@ class CheckStudentIfExistService implements CheckStudentIfExistServiceInterface
             'studentId' => $student->student_id, 
             'firstName' => $student->first_name,
             'lastName'  => $student->last_name,
+            'courseGraduate'    => $student->course_graduate,
+            'batchGraduate'     => $student->batch_graduate,
             'torNumber'       => $student->tor_number,
             'sessionExpireAt' => now()->addMinutes(10)
         ];

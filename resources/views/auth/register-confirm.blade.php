@@ -85,6 +85,8 @@
                     @csrf
 
                      <input type="hidden" name="tor_number" value="{{ old('tor_number', $studentData['torNumber'] ?? '') }}">
+                     <input type="hidden" name="course" value="{{ old('course', $studentData['courseGraduate'] ?? '') }}">
+                     <input type="hidden" name="year_graduate" value="{{ old('year_graduate', $studentData['batchGraduate'] ?? '') }}">
                      <!-- Email -->
                     <div class="border py-1.5 border-black rounded-md">
                         <x-inputs.auth-input id="email" label="Email" type="email" name="email"
