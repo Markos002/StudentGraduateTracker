@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Interfaces\Services\Auth\CheckStudentIfExistServiceInterface;
-use App\Interfaces\Services\Auth\RegisterServiceInterface;
 use App\Security\RegisterRequestSession;
 use App\Support\SessionManager;
 use App\Traits\RegisterUserSessionGet;

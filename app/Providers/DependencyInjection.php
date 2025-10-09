@@ -10,13 +10,14 @@ use App\Interfaces\Repository\StudentRegistryRepositoryInterface;
 use App\Interfaces\Repository\UserDataRepositoryInterface;
 use App\Interfaces\Repository\UserRepositoryInterface;
 use App\Interfaces\Services\Auth\CheckStudentIfExistServiceInterface;
-use App\Interfaces\Services\Auth\RegisterServiceInterface;
 use App\Interfaces\Services\Auth\UpdatePersonalDetailsServiceInterface;
+use App\Interfaces\Services\CareerHistoryServiceInterface;
+use App\Interfaces\Services\CertificationServiceInterface;
+use App\Interfaces\Services\PersonalDetailsServiceInterface;
+use App\Interfaces\Services\PersonalSummaryServiceInterface;
 use App\Interfaces\Services\ReportsServiceInterface;
-use App\Interfaces\Services\StudentReadServiceInterface;
 use App\Interfaces\Services\StudentRecordServiceInterface;
 use App\Interfaces\Services\StudentRegistryServiceInterface;
-use App\Interfaces\Services\StudentWriteServiceInterface;
 use App\Interfaces\Services\UserServiceInterface;
 use App\Repository\AchievementRepository;
 use App\Repository\JobRepository;
@@ -26,13 +27,14 @@ use App\Repository\StudentRegistryRepository;
 use App\Repository\UserDataRepository;
 use App\Repository\UserRepository;
 use App\Services\Auth\CheckStudentIfExistService;
-use App\Services\Auth\RegisterService;
 use App\Services\Auth\UpdatePersonalDetailsService;
+use App\Services\CareerHistoryService;
+use App\Services\CertificationService;
+use App\Services\PersonalDetailsService;
+use App\Services\PersonalSummaryService;
 use App\Services\ReportsService;
-use App\Services\StudentReadService;
 use App\Services\StudentRecordService;
 use App\Services\StudentRegistryService;
-use App\Services\StudentWriteService;
 use App\Services\UserService;
 use Illuminate\Support\ServiceProvider;
 
@@ -57,10 +59,13 @@ class DependencyInjection extends ServiceProvider
         $this->app->bind(ReportsServiceInterface::class, ReportsService::class);
         $this->app->bind(StudentRegistryServiceInterface::class, StudentRegistryService::class);
         $this->app->bind(StudentRecordServiceInterface::class, StudentRecordService::class);
-        $this->app->bind(StudentWriteServiceInterface::class, StudentWriteService::class);
-        $this->app->bind(StudentReadServiceInterface::class, StudentReadService::class);
         $this->app->bind(UpdatePersonalDetailsServiceInterface::class, UpdatePersonalDetailsService::class);
         $this->app->bind(CheckStudentIfExistServiceInterface::class, CheckStudentIfExistService::class);
+        $this->app->bind(CareerHistoryServiceInterface::class, CareerHistoryService::class);
+        $this->app->bind(CertificationServiceInterface::class, CertificationService::class);
+        $this->app->bind(PersonalDetailsServiceInterface::class, PersonalDetailsService::class);
+        $this->app->bind(PersonalSummaryServiceInterface::class, PersonalSummaryService::class);
+
     }
 
     /**

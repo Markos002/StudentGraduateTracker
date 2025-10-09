@@ -4,9 +4,13 @@ use App\Http\Controllers\AdminController\AlumnusController;
 use App\Http\Controllers\AdminController\DashboardController;
 use App\Http\Controllers\AdminController\InsightController;
 use App\Http\Controllers\AdminController\StudentController;
+use App\Http\Controllers\StudentController\CareerHistoryController;
+use App\Http\Controllers\StudentController\CertificationController;
+use App\Http\Controllers\StudentController\PersonalSummaryController;
 use App\http\Controllers\StudentController\StudentDashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController\StudentProfileController;
+use App\Http\Controllers\StudentController\StudentProfileUpdateController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,9 +36,14 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
 Route::prefix('student')->middleware(['auth', 'role:User'])->group(function () {
 
     Route::get('/dashboard', [StudentDashboardController::class, 'dashboard'])->name('student.dashboard');
-    Route::post('/personal-summary/add', [StudentProfileController::class, 'storePersonalSummary'])->name('student.add.personalSummary');
-    Route::post('/career-history/add',[StudentProfileController::class, 'storeCareerHistory'])->name('student.add.careerHistory');
-    Route::post('/certification/add', [StudentProfileController::class, 'storeCertifications'])->name('student.add.certification');
+
+    Route::post('/personal-summary/add', [PersonalSummaryController::class, 'store'])->name('student.add.personalSummary');
+    Route::put('/personal-summary/update/{id}', [PersonalSummaryController::class, 'update'])->name('student.update.personalSummary');
+
+    Route::post('/career-history/add',[CareerHistoryController::class, 'store'])->name('student.add.careerHistory');
+    
+    Route::post('/certification/add', [CertificationController::class, 'store'])->name('student.add.certification');
+
 
 });
 

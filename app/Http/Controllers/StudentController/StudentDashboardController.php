@@ -3,25 +3,30 @@
 namespace App\Http\Controllers\StudentController;
 
 use App\Http\Controllers\Controller;
-use App\Interfaces\Services\StudentReadServiceInterface;
-use App\Services\StudentReadService;
+use App\Interfaces\Services\CareerHistoryServiceInterface;
+use App\Interfaces\Services\CertificationServiceInterface;
+use App\Interfaces\Services\PersonalDetailsServiceInterface;
+use App\Interfaces\Services\PersonalSummaryServiceInterface;
 
 class StudentDashboardController extends Controller
 {
 
     public function __construct(
-        protected StudentReadServiceInterface $studentReadService,
+        protected PersonalSummaryServiceInterface $personalSummaryServiceInterface,
+        protected CareerHistoryServiceInterface   $careerHistoryServiceInterface,
+        protected CertificationServiceInterface   $certificationServiceInterface,
+        protected PersonalDetailsServiceInterface $personalDetailsServiceInterface,
     ){}
     
 
     public function dashboard()
     {
         
-        $personalSummary = $this->studentReadService->readPersonalSummary();
-        $careerHistory   = $this->studentReadService->readCareerHistory();  
-        $certifications  = $this->studentReadService->readCertifications();
-        $personalDetail  = $this->studentReadService->personalDetails();
-        //dd($personalSummary);
+        $personalSummary = $this->personalSummaryServiceInterface->show();
+        $careerHistory   = $this->careerHistoryServiceInterface->show();  
+        $certifications  = $this->certificationServiceInterface->show();
+        $personalDetail  = $this->personalDetailsServiceInterface->show();
+        //($personalSummary);
         //dd($careerHistory);
         //dd($certifications);
         //dd($personalDetail);
