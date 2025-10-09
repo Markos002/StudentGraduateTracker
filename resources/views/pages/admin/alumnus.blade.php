@@ -17,7 +17,7 @@
                 {{-- Top Bar --}}
                 <div class="flex flex-wrap items-center justify-between gap-4">
                     {{-- Search --}}
-                    <div class="flex-1 min-w-[300px] sm:w-auto">
+                    <div class="flex-1 sm:w-auto">
                         <x-search.search 
                             id="searchInput"
                             placeholder="Search"
@@ -67,7 +67,6 @@
                     </div>
                 </div>
             </div>
-
             {{-- Alerts --}}
             @if(session('success'))
                 <div class="bg-green-100 text-green-800 p-3 rounded mb-4">

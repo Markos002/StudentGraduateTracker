@@ -9,8 +9,8 @@ trait CourseAlignment
     {
 
         return [
-             'aligned',
-             'notAligned'  
+             'Aligned',
+             'Not Aligned'  
         ];
     }
 }

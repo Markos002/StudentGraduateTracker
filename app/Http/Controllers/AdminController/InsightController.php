@@ -23,17 +23,17 @@ class InsightController extends Controller
     public function analytics(Request $request)
     {
         $year = $request->year?? now()->year;
-        $course = $request->course?? 'ALL'; //default ALL if no select,, pass course
-        $alignedSelect = $request->aligned?? 'aligned'; //default aligned if no select,, pass aligned or notAligned
+        $selectedCourse = $request->course?? 'ALL'; //default ALL if no select,, pass course
+        $alignedSelect = $request->aligned?? 'Aligned'; //default aligned if no select,, pass aligned or notAligned
         $availableYears = $this->yearRange();
         $selectedYear = (string)$year;
-
-        $jobTrends = $this->reportsServiceInterface->jobTrends($year, $course);
+        
+        $jobTrends = $this->reportsServiceInterface->jobTrends($year, $selectedCourse);
         $studentAlignment = $this->reportsServiceInterface->studentStatisticOverView($year, $alignedSelect); 
-        $studentOverViewCourse = $this->reportsServiceInterface->demographicByCourse($year, $course); 
+        $studentOverViewCourse = $this->reportsServiceInterface->demographicByCourse($year, $selectedCourse); 
         $courses = $this->courseList();  //List of course ALL,BSIT,BSMX etc.
         $courseAlignment = $this->courseAlignment(); //aligned or notAligned 
-
+        //dd($studentOverViewCourse);
             return view('pages.admin.insight',compact(
                 'availableYears',
                 'selectedYear',
@@ -42,6 +42,8 @@ class InsightController extends Controller
                 'studentOverViewCourse',
                 'courses',
                 'courseAlignment',
+                'selectedCourse',
+                'alignedSelect'
             ));
 
     }
