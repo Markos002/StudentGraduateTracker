@@ -11,15 +11,13 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js','resources/js/global.js','resources/js/modal.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-[#F3F3F3] flex max-w-screen">
+    <body class="font-sans antialiased min-h-screen bg-[#F3F3F3] flex max-w-screen">
             @include('layouts.navigation')
             @if(session('success')){
-                <x-sweetAlert.admin-message title="Success" message="Student record created successfully." type="success"/>
+                <x-sweetAlert.admin-message title="Success" message="{{ session('success') }}" type="success"/>
             }
             @elseif(session('error')){
                 <x-sweetAlert.admin-message title="Error" message="{{ session('error') }}" type="error"/>
@@ -29,6 +27,5 @@
             <main class="w-full">
                 {{ $slot }}
             </main>
-        </div>
     </body>
 </html>

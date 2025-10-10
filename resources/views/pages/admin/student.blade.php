@@ -15,9 +15,9 @@
                 <h1 class="text-2xl font-bold">All Students</h1>
                 
                 {{-- Top Bar --}}
-                <div class="flex flex-wrap items-center justify-between gap-4">
+                <div class="flex flex-wrap flex-col items-end gap-4 lg:items-center lg:flex-row  ">
                     {{-- Search --}}
-                    <div class="flex-1  sm:w-auto">
+                    <div class="flex-1 w-full">
                         <x-search.search 
                             id="searchInput"
                             placeholder="Search"

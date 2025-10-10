@@ -12,14 +12,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController\StudentProfileController;
 use App\Http\Controllers\StudentController\StudentProfileUpdateController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Auth\PasswordController;
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/settings',function(){
-    return view('settings');
-});
 
 Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
 
@@ -27,7 +24,8 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
     Route::get('/insight', [InsightController::class, 'analytics'])->name('admin.insight');
     Route::get('/student', [StudentController::class, 'student'])->name('admin.student');
     Route::get('/alumnus', [AlumnusController::class, 'alumnus'])->name('admin.alumnus');
-    
+    Route::get('/settings', [PasswordController::class, 'index'])->name('admin.settings');
+
     //POST//
     Route::post('/student/add', [StudentController::class,'store'])->name('admin.student.add');
 

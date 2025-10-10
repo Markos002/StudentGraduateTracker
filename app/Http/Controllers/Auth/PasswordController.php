@@ -10,6 +10,9 @@ use Illuminate\Validation\Rules\Password;
 
 class PasswordController extends Controller
 {
+    public function index(){
+        return view('pages.admin.settings');
+    }
     /**
      * Update the user's password.
      */
@@ -20,10 +23,14 @@ class PasswordController extends Controller
             'password' => ['required', Password::defaults(), 'confirmed'],
         ]);
 
-        $request->user()->update([
+        try{
+            $request->user()->update([
             'password' => Hash::make($validated['password']),
-        ]);
+            ]);
 
-        return back()->with('status', 'password-updated');
+            return redirect()->back()->with('success', 'Your password has been updated successfully.');
+        }catch(\Exception $e){
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 }

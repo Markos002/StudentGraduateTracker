@@ -5,10 +5,10 @@
 ])
 
 <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
-<div class="p-8 bg-white rounded-md mt-5">
-  <div class="flex flex-col lg:flex-row gap-8">
+<div class="p-8 bg-white rounded-md mt-5 overflow-x-auto ">
+  <div class="flex lg:flex-row gap-8 w-[800px]">
     {{-- Left Side: Chart --}}
-    <div class="flex-1 relative" style="height: 350px;">
+    <div class="flex-1 relative " style="height: 350px;">
       <div id="alignmentChart" style="height: 100%; width: 100%;"></div>
       <div id="noAlignmentData" class="absolute inset-0 flex items-center justify-center text-gray-600 text-lg font-medium hidden">
         No data available
@@ -17,7 +17,7 @@
 
     {{-- Right Side --}}
     <div class="flex-1 flex flex-col">
-      <div class="flex  sm:flex-row justify-between items-start mb-4 gap-3">
+      <div class="flex  justify-between sm:flex-row  items-start mb-4 gap-3">
         <h2 class="font-bold text-lg">Student Alignment</h2>
         <form id="alignmentFilterForm" method="GET" action="{{ route('admin.insight') }}" class="flex gap-3">
           <input type="hidden" name="aligned" id="alignedInput" value="{{ $alignedSelect }}">
@@ -92,7 +92,7 @@ window.addEventListener('load', function() {
         <div class="flex items-center gap-3">
           <span class="w-10 h-10 rounded-sm" style="background-color:${item.color};"></span>
           <span class="text-sm font-medium text-gray-700">${item.name}</span>
-          <span class="ml-auto text-sm text-gray-500">${percentage}%</span>
+          <span class="ml-auto text-sm text-gray-500">${item.value} - (${percentage}%)</span>
         </div>
       `;
     }).join('');

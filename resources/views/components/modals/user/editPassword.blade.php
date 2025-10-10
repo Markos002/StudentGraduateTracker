@@ -1,3 +1,4 @@
+@props(['buttonclass'])
 <div id="editPassword" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
     <div class=" bg-white rounded-lg w-full max-w-lg h-full overflow-y-auto max-h-[20rem]lg:h-full lg:max-h-[40rem] p-8">
         <div class="flex justify-between items-center mb-4">
@@ -46,7 +47,7 @@
         <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
 
         <div class="flex items-center gap-4">
-                <x-buttons.primary-button type="submit"> 
+                <x-buttons.primary-button type="submit" class="{{ $buttonclass }}"> 
                     Submit
                 </x-buttons.primary-button>
                 <button type="button" onclick="closeModal('editPassword')" class="px-4 py-2 text-black">
