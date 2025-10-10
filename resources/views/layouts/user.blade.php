@@ -59,7 +59,7 @@
                         </div>
                     </header>
                     @if(session('success')){
-                        <x-sweetAlert.admin-message title="Success" message="Updated" type="success"/>
+                        <x-sweetAlert.admin-message title="Success" message="{{ session('success') }}" type="success"/>
                     }
                     @elseif(session('error')){
                         <x-sweetAlert.admin-message title="Error" message="{{ session('error') }}" type="error"/>

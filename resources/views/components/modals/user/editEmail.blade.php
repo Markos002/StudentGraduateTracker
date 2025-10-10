@@ -16,6 +16,7 @@
                 name="email"
                 label="Email Address"
                 placeholder="Enter Email"
+                :value="Auth::user()->email"
                 />
                 
                 <div class="flex justify-start gap-5 py-3">

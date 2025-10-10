@@ -42,17 +42,21 @@
                       <p class="mb-4">
                         {{ $personalSummary->personal_summary ?? 'No personal summary yet.' }}
                        </p>               
-                    <div>
-                        <button onclick="openModal('editPersonalSummary')">
-                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0 13.6571V16.5278C0 16.7922 0.20775 17 0.472158 17H3.34288C3.46564 17 3.5884 16.9528 3.67339 16.8584L13.9853 6.55586L10.4441 3.01468L0.141648 13.3172C0.0472159 13.4116 0 13.5249 0 13.6571ZM16.7238 3.81735C16.8114 3.72998 16.8808 3.62621 16.9282 3.51198C16.9756 3.39774 17 3.27528 17 3.1516C17 3.02793 16.9756 2.90547 16.9282 2.79123C16.8808 2.67699 16.8114 2.57322 16.7238 2.48586L14.5141 0.27616C14.4268 0.188618 14.323 0.119166 14.2088 0.0717788C14.0945 0.0243917 13.9721 0 13.8484 0C13.7247 0 13.6023 0.0243917 13.488 0.0717788C13.3738 0.119166 13.27 0.188618 13.1827 0.27616L11.4546 2.00426L14.9957 5.54544L16.7238 3.81735Z" fill="black"/>
-                        </svg>
-                        </button>
-                    </div>
+                    @if(!empty($personalSummary) && !empty($personalSummary->personal_summary))
+                        <div>
+                            <button onclick="openModal('editPersonalSummary')">
+                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 13.6571V16.5278C0 16.7922 0.20775 17 0.472158 17H3.34288C3.46564 17 3.5884 16.9528 3.67339 16.8584L13.9853 6.55586L10.4441 3.01468L0.141648 13.3172C0.0472159 13.4116 0 13.5249 0 13.6571ZM16.7238 3.81735C16.8114 3.72998 16.8808 3.62621 16.9282 3.51198C16.9756 3.39774 17 3.27528 17 3.1516C17 3.02793 16.9756 2.90547 16.9282 2.79123C16.8808 2.67699 16.8114 2.57322 16.7238 2.48586L14.5141 0.27616C14.4268 0.188618 14.323 0.119166 14.2088 0.0717788C14.0945 0.0243917 13.9721 0 13.8484 0C13.7247 0 13.6023 0.0243917 13.488 0.0717788C13.3738 0.119166 13.27 0.188618 13.1827 0.27616L11.4546 2.00426L14.9957 5.54544L16.7238 3.81735Z" fill="black"/>
+                                </svg>
+                            </button>
+                        </div>
+                    @endif
                 </div>
-                <button onclick="openModal('addPersonalSummary')" class="text-orange-500 text-sm font-medium hover:text-orange-600">
-                    + Add Personal Summary
-                </button>
+                @if(empty($personalSummary) || empty($personalSummary->personal_summary))
+                    <button onclick="openModal('addPersonalSummary')" class="text-orange-500 text-sm font-medium hover:text-orange-600">
+                        + Add Personal Summary
+                    </button>
+                @endif
             </section>
 
             <!-- Career History -->
@@ -91,7 +95,7 @@
                 @else
                     <div class="text-gray-700 max-w-6xl p-6 border border-gray-700 rounded-lg">
                         <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-semibold text-gray-800"></h3>
+                            <h3 class="text-xl font-semibold text-gray-800">No career history yet.</h3>
                         </div>
                         <p class="text-sm text-gray-600 mb-2"></p>
                         <p class="text-gray-700 text-sm leading-relaxed"></p>
@@ -109,16 +113,6 @@
                 <div class="flex items-center justify-between mb-4">
                     <h2 class="text-3xl font-semibold text-gray-800 mb-4 pb-2">Education</h2>
                 </div>
-                
-                @if(isset($education) && count($education) > 0)
-                    @foreach($education as $edu)
-                    <div class="mb-4 p-4  rounded border border-gray-700">
-                        <h3 class="font-semibold text-gray-800 text-xl">{{ $edu['degree'] }}</h3>
-                        <p class="text-sm text-gray-600 py-2">{{ $edu['school'] }} • {{ $edu['location'] }}</p>
-                        <p class="text-sm text-gray-500 py-2">{{ $edu['duration'] }}</p>
-                    </div>
-                    @endforeach
-                @else
                     <div class="mb-4 p-6  rounded border border-gray-700">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-semibold text-gray-800 text-xl">
@@ -136,23 +130,10 @@
                                     Bachelor in Industrial Technology - Major in Electrical          
                                 @endif  
                             </h3>
-                            <div>
-                                <button>
-                                    <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 13.6571V16.5278C0 16.7922 0.20775 17 0.472158 17H3.34288C3.46564 17 3.5884 16.9528 3.67339 16.8584L13.9853 6.55586L10.4441 3.01468L0.141648 13.3172C0.0472159 13.4116 0 13.5249 0 13.6571ZM16.7238 3.81735C16.8114 3.72998 16.8808 3.62621 16.9282 3.51198C16.9756 3.39774 17 3.27528 17 3.1516C17 3.02793 16.9756 2.90547 16.9282 2.79123C16.8808 2.67699 16.8114 2.57322 16.7238 2.48586L14.5141 0.27616C14.4268 0.188618 14.323 0.119166 14.2088 0.0717788C14.0945 0.0243917 13.9721 0 13.8484 0C13.7247 0 13.6023 0.0243917 13.488 0.0717788C13.3738 0.119166 13.27 0.188618 13.1827 0.27616L11.4546 2.00426L14.9957 5.54544L16.7238 3.81735Z" fill="black"/>
-                                    </svg>
-                                </button>
-                            </div>
                         </div>
                         <p class="text-sm text-gray-600 py-2">Cebu Technological University - Danao Campus</p>
-                        <p class="text-sm text-gray-500 py-2">{{ Auth::user()->year_graduate }}</p>
+                        <p class="text-sm text-gray-500 py-2">Batch - {{ Auth::user()->year_graduate . "-" . Auth::user()->year_graduate+1 }}</p>
                     </div>
-                @endif
-
-
-                <button class="text-orange-500 text-sm font-medium hover:text-orange-600">
-                    + Add Education
-                </button>
             </section>
             
             <!-- Certifications -->
@@ -177,19 +158,12 @@
                                     </div>
                                     <p class="text-sm text-gray-600">{{$cert['year'] }} | {{ $cert['term'] }}</p>
                                 </div>
-                            @else
-                                <div class="mb-4 p-6 border border-gray-700 rounded-lg">
-                                    <div class="flex justify-between items-start mb-2">
-                                        <h3 class="font-semibold text-gray-800"></h3>
-                                    </div>
-                                    <p class="text-sm text-gray-600"></p>
-                                </div>
                             @endif
                         @endforeach
                     @else
                         <div class="mb-4 p-6 border border-gray-700 rounded-lg">
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="font-semibold text-gray-800"></h3>
+                                <h3 class="font-semibold text-gray-800">No certification history yet.</h3>
                             </div>
                             <p class="text-sm text-gray-600"></p>
                         </div>

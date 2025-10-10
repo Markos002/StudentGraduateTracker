@@ -42,7 +42,7 @@
                             ]"
                         />
                     </header>
-
+                    
                     <main id="" class="grid grid-col-2 w-full pt-28 lg:gap-8 md:pt-40 lg:items-center lg:justify-center lg:pt-0 lg:h-[40rem]">
                         <div class=" flex flex-col justify-between space-y-12 lg:flex-row lg:gap-12 w-[100%]">
                             <div class="flex flex-col gap-6 lg:gap-8 lg:w-full place-content-center">
@@ -91,7 +91,7 @@
                         </div>
                         <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
                             <div data-aos="fade-up" data-aos-delay="300" class="feature-card text-center group">
-                                <div class="bg-[#d97651] w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg">
+                                <div class="hover:scale-110 transition-all duration-500 bg-[#d97651] w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg">
                                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -103,7 +103,7 @@
                                 </p>
                             </div>
                             <div data-aos="fade-up" data-aos-delay="400" class="feature-card text-center group">
-                                <div class="bg-[#d97651] w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg">
+                                <div class="hover:scale-110 transition-all duration-500 bg-[#d97651] w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg">
                                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z"></path>
                                     </svg>
@@ -114,7 +114,7 @@
                                 </p>
                             </div>
                             <div data-aos="fade-up" data-aos-delay="500" class="feature-card text-center group">
-                                <div class="bg-[#d97651] w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg">
+                                <div class="hover:scale-110 transition-all duration-500 bg-[#d97651] w-16 h-16 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg">
                                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                                     </svg>
@@ -133,14 +133,14 @@
                 <div class="lg:flex">
                     <!-- Left -->
                     <div class="w-full py-20 lg:py-0 lg:w-3/4 bg-gray-300 relative flex items-center justify-center">
-                            <div class="rounded-lg p-4 w-96 h-96 relative ">
+                            <div data-aos="zoom-in" data-aos-delay="300" class="rounded-lg p-4 w-96 h-96 relative ">
                                 <img src="{{ asset('images/aboutus.png') }}" alt="laptop-track" class="w-[489px] h-[409px] transform transition-transform duration-500 ease-in-out hover:scale-110 hover:rotate-1">
                             </div>
                     </div>
 
                     <!-- Right -->
                     <div class="w-full  py-20 place-content-center bg-pink-50 flex items-center px-12">
-                        <div class="max-w-lg">
+                        <div class="max-w-lg" data-aos="fade-left">
                             <h2 class="text-4xl font-bold text-gray-900 mb-8">About Us</h2>
                             
                             <div class="space-y-6 text-gray-700">
@@ -176,7 +176,7 @@
                     ~~ IF MOBILE 
                     -REVERSE -->
                     <div class="w-full py-20 place-content-center bg-pink-50 flex items-center px-12">
-                        <div class="max-w-lg place-content-center">
+                        <div data-aos="fade-right" class="max-w-lg place-content-center">
                             <h2 class="text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
                             <p class="text-gray-600 mb-12 italic">From academic journey to graduate insights — we track it all.</p>
                             <div class="grid grid-cols-2 gap-8">
@@ -209,7 +209,7 @@
                     </div>
                     <!-- Right -->
                     <div class="w-full lg:w-3/4 py-32 lg:py-0 bg-gray-300 relative flex items-center justify-center">
-                        <div class=" rounded-lg p-4 w-96 h-60 relative">
+                        <div data-aos="zoom-in" data-aos-delay="300" class=" rounded-lg p-4 w-96 h-60 relative">
                             <div class="space-y-3">
                                 <img src="{{ asset('images/howitworks.png') }}" alt="dashboard-track" class="w-[589px] h-[219px] transform transition-transform duration-500 ease-in-out hover:scale-110 hover:rotate-1">
                             </div>

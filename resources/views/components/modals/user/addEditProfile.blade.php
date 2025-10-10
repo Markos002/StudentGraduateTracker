@@ -53,7 +53,7 @@
                     </div>
                 </div>
             <div class="flex justify-start gap-5 py-3">
-                <x-buttons.primary-button type="submit"> 
+                <x-buttons.primary-button type="submit" > 
                     Submit
                 </x-buttons.primary-button>
                 <button type="button" onclick="closeModal('userProfile')" class="px-4 py-2 text-black">

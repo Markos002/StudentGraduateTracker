@@ -47,7 +47,7 @@
         <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
 
         <div class="flex items-center gap-4">
-                <x-buttons.primary-button type="submit" class="{{ $buttonclass }}"> 
+                <x-buttons.primary-button type="submit" class="{{ $buttonclass ?? ''}}"> 
                     Submit
                 </x-buttons.primary-button>
                 <button type="button" onclick="closeModal('editPassword')" class="px-4 py-2 text-black">
