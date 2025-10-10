@@ -37,9 +37,25 @@ class CertificationController extends Controller
         }
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
 
+         $validated = $request->validate([
+                      'cert_name' => 'sometimes|nullable|string',
+                      'year'      => 'sometimes|nullable|string',
+                      'term'      => 'sometimes|nullable|string',
+        ]);
+        $validated['achievement_id'] = $id;
+   
+        try{
+            
+            $this->certificationServiceInterface->update($validated);
+            return redirect()->back()->with('success', 'Successfully update certification.');
+
+        }catch(\Exception $e){
+
+            return redirect()->back()->with('error', $e->getMessage());
+        }
 
     }
 }

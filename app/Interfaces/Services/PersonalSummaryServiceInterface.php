@@ -7,7 +7,7 @@ interface PersonalSummaryServiceInterface
 
     public function show();
 
-    public function create($data);
+    public function store($data);
 
     public function update($data);
 }

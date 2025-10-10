@@ -34,7 +34,8 @@ class CertificationService implements CertificationServiceInterface
 
     public function update($data)
     {
-
+       
+        return $this->achievementRepositoryInterface->update($data);
 
     }
 }

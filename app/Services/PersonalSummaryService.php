@@ -23,7 +23,7 @@ class PersonalSummaryService implements PersonalSummaryServiceInterface
         return $this->achievementRepositoryInterface->findPersonalSummaryById($userId);
     }
 
-    public function create($data)
+    public function store($data)
     {
 
         return $this->achievementRepositoryInterface->store($data);

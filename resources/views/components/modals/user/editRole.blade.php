@@ -7,8 +7,9 @@
             </button>
         </div>
 
-        <form method="POST" action="" class="gap-2 text-black text-sm">
+        <form id="editRoleForm" action="{{ route('student.update.careerHistory', 0) }}" method="POST"  class="gap-2 text-black text-sm">
             @csrf
+            @method('PUT')
 
             <input type="hidden" id="edit_id" name="job_id">
             <!-- Job Title -->

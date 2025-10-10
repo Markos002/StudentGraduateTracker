@@ -43,7 +43,9 @@ class JobRepository implements JobRepositoryInterface
                         'start_date',
                         'end_date',
                         'description',
+                        'created_at',
                     )
+                    ->orderBy('created_at', 'asc')
                     ->get();
 
     }

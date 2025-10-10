@@ -39,8 +39,10 @@ Route::prefix('student')->middleware(['auth', 'role:User'])->group(function () {
     Route::put('/personal-summary/update/{id}', [PersonalSummaryController::class, 'update'])->name('student.update.personalSummary');
 
     Route::post('/career-history/add',[CareerHistoryController::class, 'store'])->name('student.add.careerHistory');
+    Route::put('/career-history/update/{id}',[CareerHistoryController::class, 'update'])->name('student.update.careerHistory');
     
     Route::post('/certification/add', [CertificationController::class, 'store'])->name('student.add.certification');
+    Route::put('/certification/update/{id}', [CertificationController::class, 'update'])->name('student.update.certification');
 
 
 });

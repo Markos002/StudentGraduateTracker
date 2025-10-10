@@ -39,8 +39,7 @@ class AchievementRepository implements AchievementRepositoryInterface
                          'achievement_id',
                          'personal_summary'
                        ])
-                       ->latest()
-                       ->get();
+                       ->first();
                        
     }
 
@@ -53,7 +52,9 @@ class AchievementRepository implements AchievementRepositoryInterface
                           'cert_name',
                           'year',
                           'term',
+                          'created_at',
                        ])
+                       ->orderBy('created_at', 'asc')
                        ->get();
     }
 

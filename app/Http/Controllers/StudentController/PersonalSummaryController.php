@@ -22,9 +22,10 @@ class PersonalSummaryController extends Controller
                     'personal_summary' => 'nullable|string'
         ]);
         $validated['user_id'] = $this->authId();
+        
         try{
 
-            $this->$this->personalSummaryServiceInterface->create($validated); 
+            $this->personalSummaryServiceInterface->store($validated); 
             return redirect()->back()->with('success', 'Successfully write personal summary.');
 
         }catch(\Exception $e){

@@ -41,4 +41,29 @@ class CareerHistoryController extends Controller
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
+
+    public function update(Request $request, $id)
+    {
+
+          $validated = $request->validate([
+                     'position' => 'sometimes|nullable|string', // Position
+                     'occupation' => 'sometimes|nullable|string', // Job
+                     'occupation_status' => 'sometimes|nullable|string', //please pass [employed,Unemployed]
+                     'course_alignment' => 'sometimes|nullable|string', // please pass [aligned,notAlinged]
+                     'description' => 'sometimes|nullable|string',
+                     'start_date'  => 'sometimes|nullable|string',
+                     'end_date' => 'sometimes|nullable|string',
+        ]);
+         $validated['job_id'] = $id;
+
+         try{
+            
+            $this->careerHistoryServiceInterface->update($validated);
+            return redirect()->back()->with('success', 'Successfully update career data.');
+
+         }catch(\Exception $e){
+
+            return redirect()->back()->with('error', $e->getMessage());
+         }
+    }
 }

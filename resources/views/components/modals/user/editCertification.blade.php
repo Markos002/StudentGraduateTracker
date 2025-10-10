@@ -7,8 +7,9 @@
             </button>
         </div>
 
-        <form method="POST" action="" class="gap-2 text-black text-sm">
-            @csrf
+           <form id="editCertificationForm" action="{{ route('student.update.certification', ['id' => 0]) }}" method="POST" class="gap-2 text-black text-sm">
+                @csrf
+            @method('PUT')
 
             <input type="hidden" id="edit_achievement_id" name="achievement_id">
             <!-- Cert Name -->
