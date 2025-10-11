@@ -8,8 +8,9 @@
             </button>
         </div>
             
-            <form action="" method="POST" class="space-y-4">
+            <form action="{{ route('student.update.profile')  }}" method="POST" class="space-y-4">
             @csrf 
+            @method('PUT')
                 <x-inputs.modal-input 
                 type="text"
                 id="email"

@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController\InsightController;
 use App\Http\Controllers\AdminController\StudentController;
 use App\Http\Controllers\StudentController\CareerHistoryController;
 use App\Http\Controllers\StudentController\CertificationController;
+use App\Http\Controllers\StudentController\PersonalDetailsController;
 use App\Http\Controllers\StudentController\PersonalSummaryController;
 use App\http\Controllers\StudentController\StudentDashboardController;
 use App\Http\Controllers\ProfileController;
@@ -43,6 +44,8 @@ Route::prefix('student')->middleware(['auth', 'role:User'])->group(function () {
     
     Route::post('/certification/add', [CertificationController::class, 'store'])->name('student.add.certification');
     Route::put('/certification/update/{id}', [CertificationController::class, 'update'])->name('student.update.certification');
+
+     Route::put('/profile/update', [PersonalDetailsController::class, 'update'])->name('student.update.profile');
 
 
 });

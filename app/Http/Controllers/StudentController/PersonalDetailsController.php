@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\StudentController;
 
 use App\Http\Controllers\Controller;
+use App\Interfaces\Services\PersonalDetailsServiceInterface;
 use App\Traits\GetAuthId;
 use Illuminate\Http\Request;
 
@@ -12,10 +13,10 @@ class PersonalDetailsController extends Controller
     use GetAuthId;
 
     public function __construct(
-       
+        protected PersonalDetailsServiceInterface $personalDetailsServiceInterface
     ){}
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
 
         $validated = $request->validate([
@@ -29,6 +30,8 @@ class PersonalDetailsController extends Controller
         
         try{
 
+            $this->personalDetailsServiceInterface->update($validated);
+            return redirect()->back()->with('success', 'Successfully update profile.');
 
         }catch(\Exception $e){
 
