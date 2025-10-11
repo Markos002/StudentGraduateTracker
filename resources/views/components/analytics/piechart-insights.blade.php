@@ -6,7 +6,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 <div class="p-8 bg-white rounded-md mt-5 overflow-x-auto ">
-  <div class="flex lg:flex-row gap-8 w-[800px]">
+  <div class="flex lg:flex-row gap-8 w-[800px] lg:w-[650px]">
     {{-- Left Side: Chart --}}
     <div class="flex-1 relative " style="height: 350px;">
       <div id="alignmentChart" style="height: 100%; width: 100%;"></div>

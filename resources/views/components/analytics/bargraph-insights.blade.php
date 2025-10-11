@@ -26,8 +26,8 @@
     </form>
   </div>
 
-  <div class="relative h-[300px] lg:px-14 gap-5">
-    <div class="min-w-[900px] md:min-w-[800px] lg:min-w-full">
+  <div class="relative h-[300px] px-1 lg:px-14 gap-5">
+    <div class="min-w-[500px] md:min-w-[600px] lg:min-w-full">
       <div id="jobTrendChart" style="height: 250px; width: 100%;"></div>
       <i class="flex justify-center py-5">Graduate Students</i>
     </div>
