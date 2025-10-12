@@ -32,6 +32,12 @@ class ReportsService implements ReportsServiceInterface
         return $this->reportsRepositoryInterface->getStudentEmploymentStats();
     }
 
+    public function countAlignmentByCourse()
+    {
+        
+        return $this->reportsRepositoryInterface->getCountAlignAndNotAlingnByCourse();
+    }
+
     public function jobTrends($year, $course)
     {
 

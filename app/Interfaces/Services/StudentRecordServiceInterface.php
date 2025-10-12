@@ -9,5 +9,6 @@ interface StudentRecordServiceInterface
 
     public function alumnusList($year, $course);
 
-    public function masterList($year);
+    public function jobConfirmationAlignment();
+
 }

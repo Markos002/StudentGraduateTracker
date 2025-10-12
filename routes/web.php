@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController\AlumnusController;
 use App\Http\Controllers\AdminController\DashboardController;
 use App\Http\Controllers\AdminController\InsightController;
+use App\Http\Controllers\AdminController\StudentAlignmentController;
 use App\Http\Controllers\AdminController\StudentController;
 use App\Http\Controllers\StudentController\CareerHistoryController;
 use App\Http\Controllers\StudentController\CertificationController;
@@ -10,10 +11,10 @@ use App\Http\Controllers\StudentController\PersonalDetailsController;
 use App\Http\Controllers\StudentController\PersonalSummaryController;
 use App\http\Controllers\StudentController\StudentDashboardController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\StudentController\StudentProfileController;
-use App\Http\Controllers\StudentController\StudentProfileUpdateController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\PasswordController;
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,6 +27,8 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
     Route::get('/student', [StudentController::class, 'student'])->name('admin.student');
     Route::get('/alumnus', [AlumnusController::class, 'alumnus'])->name('admin.alumnus');
     Route::get('/settings', [PasswordController::class, 'index'])->name('admin.settings');
+    Route::get('/pendings/confirmation', [StudentAlignmentController::class, 'index']);
+    
 
     //POST//
     Route::post('/student/add', [StudentController::class,'store'])->name('admin.student.add');

@@ -35,10 +35,10 @@ class StudentRecordService implements StudentRecordServiceInterface
 
     }
 
-    public function masterList($year)
+    public function jobConfirmationAlignment()
     {
 
-        return $this->studentRegistryRepositoryInterface->getMasterList($year);
-
+        return $this->studentRegistryRepositoryInterface->getJobAlignmentConfirmation();
+        
     }
 }

@@ -11,6 +11,8 @@ interface ReportsServiceInterface
 
     public function studentEmplomentStat();
 
+    public function countAlignmentByCourse();
+
     public function jobTrends($year, $course);
 
     public function studentStatisticOverView($year, $course_alignment);

@@ -44,6 +44,23 @@ class ReportsRepository implements ReportsRepositoryInterface
             ->pluck('count', 'occupation_status')
             ->toArray();
     }
+
+    public function getCountAlignAndNotAlingnByCourse()
+    {
+
+        $year = now()->year;
+
+        return Job::join('users', 'jobs.user_id', '=', 'users.user_id')
+            ->select([
+                'users.course',
+                DB::raw('COUNT(CASE WHEN jobs.course_alignment = "aligned" THEN 1 END) AS aligned'),
+                DB::raw('COUNT(CASE WHEN jobs.course_alignment = "Not Aligned" THEN 1 END) AS not_aligned'),
+              
+            ])
+            ->whereYear('jobs.created_at', $year)
+            ->groupBy('users.course')
+            ->get();
+    }
     
     public function getJobTrends($year, $course)
     {
