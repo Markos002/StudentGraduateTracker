@@ -38,15 +38,6 @@
                 selected=""
             />
 
-            <!-- Course Alingment -->
-            <x-inputs.select-input 
-                id="edit_course_alignment" 
-                name="course_alignment" 
-                label="Course Alignment" 
-                :options="['','Aligned','Not Aligned']" 
-                selected=""
-            />
-
             <!-- Started -->
             <div class="space-y-3">
                 <label class="block text-sm font-medium text-gray-700 mb-1">Started</label>
@@ -92,6 +83,14 @@
                 <p class="text-xs text-gray-500 mt-1">Write your summary here. Use at most 10,000 characters.</p>
             </div>
 
+            <!-- Salary Optional -->
+            <x-inputs.modal-input 
+                type="text"
+                id="edit_salary"
+                name="salary"
+                label="Salary"
+                placeholder="Enter Salary (Optional)"
+            />
             <!-- Buttons -->
             <div class="flex gap-2 mt-6">
                 <x-buttons.primary-button type="submit">Submit</x-buttons.primary-button>

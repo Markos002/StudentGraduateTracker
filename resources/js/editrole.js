@@ -30,6 +30,7 @@ function openRoleEditModal(id){
     document.getElementById('edit_course_alignment').value = career.course_alignment ?? '';
     document.getElementById('edit_start_date').value = career.start_date ?? '';
     document.getElementById('edit_description').value = career.description ?? '';
+    document.getElementById('edit_salary').value = career.salary ?? '';
     
     // Handle end date and "Until now" checkbox
     const endDateField = document.getElementById('edit_end_date');
