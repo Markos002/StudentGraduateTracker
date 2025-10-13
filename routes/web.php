@@ -27,11 +27,11 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
     Route::get('/student', [StudentController::class, 'student'])->name('admin.student');
     Route::get('/alumnus', [AlumnusController::class, 'alumnus'])->name('admin.alumnus');
     Route::get('/settings', [PasswordController::class, 'index'])->name('admin.settings');
-    Route::get('/pendings/confirmation', [StudentAlignmentController::class, 'index']);
-    
+    Route::get('/pendings/confirmation', [StudentAlignmentController::class, 'index'])->name('admin.confirmation');
 
     //POST//
     Route::post('/student/add', [StudentController::class,'store'])->name('admin.student.add');
+    
 
 });
 

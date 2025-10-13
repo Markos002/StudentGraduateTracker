@@ -54,18 +54,18 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
    public function getJobAlignmentConfirmation()
    {
 
-       return Job::with('user:user_id,course')
-             ->select([
-               'job_id',
-               'user_id',
-               'position',
-               'occupation',
-               'description',
-               'course_alignment'
-               
-            ])
-            ->whereNull('course_alignment')
-            ->paginate(7);
-
+       return Job::join('users', 'jobs.user_id', '=', 'users.user_id')
+        ->select([
+            'jobs.job_id',
+            'jobs.user_id',
+            'jobs.position',
+            'jobs.occupation',
+            'jobs.description',
+            'jobs.course_alignment',
+            DB::raw("CONCAT(users.first_name, ' ', users.last_name) as full_name"),
+            'users.course',
+        ])
+        ->whereNull('jobs.course_alignment')
+        ->paginate(7);
    }
 }

@@ -18,6 +18,8 @@ class StudentAlignmentController extends Controller
 
         $listConfirmation = $this->studentRegistryRepositoryInterface->getJobAlignmentConfirmation();
 
-        return view();
+        return view('pages.admin.confirmation', compact(
+            'listConfirmation'
+        ));
     }
 }

@@ -78,31 +78,39 @@
 <script>
     function showDataModal(row) {
     
+    const courseNames = {
+    "BSIT": "Bachelor of Science in Information Technology",
+    "BSMX": "Bachelor of Science in Mechatronics",
+    "BIT-ELEC": "Bachelor in Industrial Technology - Major in Electronics",
+    "BIT-CT": "Bachelor in Industrial Technology - Major in Computer Technology",
+    "BIT-DT": "Bachelor in Industrial Technology - Major in Drafting",
+    "BIT-ELEX": "Bachelor in Industrial Technology - Major in Electrical",
+    };
     let modalContent = document.getElementById('modalContent');
     
     let employementStatus = '';
-    if (row.status.toLowerCase() === 'unemployed') {
+    if (row.occupation_status === 'Unemployed') {
         employementStatus = 'bg-yellow-300 text-black';
-    } else if (row.status.toLowerCase() === 'employed') {
-        employementStatus = 'bg-gray-400 text-white';
-    } else if (row.status.toLowerCase() === 'unregistered') {
-        employementStatus = 'bg-red-500 text-white';
+    } else if (row.occupation_status === 'Employed') {
+        employementStatus = 'bg-gray-400 text-black';
+    } else {
+        employementStatus = 'text-red-800';
     }
     modalContent.innerHTML = '';    
         
     modalContent.innerHTML += `
         <div class="flex text-black items-center pb-2 gap-5">
             <span class="font-bold text-3xl">${row.fullname}</span>
-            <span class="${employementStatus} px-2 py-0.5 text-lg font-medium rounded">${row.status}</span>
+            <span class="${employementStatus} px-2 py-0.5 text-lg font-medium rounded">${row.occupation_status ?? "Not Registered"}</span>
         </div>
-        <div class="mt-2 text-black border-b text-md">${row.graduatedcourse}</div>
+        <div class="mt-2 py-3 text-black border-b text-[16px]">${courseNames[row.graduatedcourse] || row.graduatedcourse}</div>
         <div class="flex justify-between py-2 text-black text-md">
-            <span>Current Work:${row.currentwork}</span>
-            <span>Year Graduated: <strong>${row.yeargraduate}</strong></span>
+            <span >Current Work:<strong>${row.occupation ?? " N/A"}</strong></span>
+            <span >Year Graduated: <strong>${row.yeargraduate}</strong></span>
         </div>
-        <div class="py-2 text-black">Email Address: ${row.email}</div>
-        <div class="py-2 text-black">Contact Number: ${row.contactnumber}</div>
-        <div class="py-2 text-black">Previous Works: ${row.works || 'N/A'}</div>
+        <div class="py-2 text-black">Email Address: <strong>${row.email}</strong></div>
+        <div class="py-2 text-black">Contact Number: <strong>${row.phone ?? "N/A"}</strong></div>
+        <div class="py-2 text-black">Previous Works: <strong>${row.works || 'N/A'}</strong> </div>
     `   
     document.getElementById('dataModal').classList.remove('hidden');
     document.getElementById('dataModal').classList.add('flex');
