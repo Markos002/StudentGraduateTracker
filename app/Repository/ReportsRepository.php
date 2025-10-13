@@ -71,7 +71,7 @@ class ReportsRepository implements ReportsRepositoryInterface
                 'jobs.occupation'
             ])        
             ->join('users', 'jobs.user_id', '=', 'users.user_id')
-            ->where('users.course', $course)
+            ->whereIn('users.course', $course)
             ->where('jobs.occupation_status', $status) 
             ->whereYear('jobs.created_at', $year) 
             ->groupBy('jobs.occupation') 

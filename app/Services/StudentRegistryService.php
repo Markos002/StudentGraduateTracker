@@ -40,7 +40,4 @@ class StudentRegistryService implements StudentRegistryServiceInterface
         return $this->listDataRepositoryInterface->update($data);
         
     }
-
- 
-
 }

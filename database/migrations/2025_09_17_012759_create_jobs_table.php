@@ -20,8 +20,8 @@ return new class extends Migration
                         ->nullOnDelete();
             $table->string('position', 50)->nullable();
             $table->string('occupation', 50)->nullable();
-            $table->string('occupation_status', 50)->nullable();
-            $table->string('course_alignment', 50)->nullable();
+            $table->enum('occupation_status',['employed', 'unEmployed', 'none'])->default('none');
+            $table->enum('course_alignment',['Aligned', 'Not Aligned', 'none'])->default('none');
             $table->string('company_name')->nullable();
             $table->string('description')->nullable();
             $table->decimal('salary', 10,2)->nullable();

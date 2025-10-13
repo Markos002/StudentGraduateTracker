@@ -16,6 +16,7 @@ use App\Interfaces\Services\CertificationServiceInterface;
 use App\Interfaces\Services\PersonalDetailsServiceInterface;
 use App\Interfaces\Services\PersonalSummaryServiceInterface;
 use App\Interfaces\Services\ReportsServiceInterface;
+use App\Interfaces\Services\StudentAlignmentServiceInterface;
 use App\Interfaces\Services\StudentRecordServiceInterface;
 use App\Interfaces\Services\StudentRegistryServiceInterface;
 use App\Interfaces\Services\UserServiceInterface;
@@ -33,6 +34,7 @@ use App\Services\CertificationService;
 use App\Services\PersonalDetailsService;
 use App\Services\PersonalSummaryService;
 use App\Services\ReportsService;
+use App\Services\StudentAlignmentService;
 use App\Services\StudentRecordService;
 use App\Services\StudentRegistryService;
 use App\Services\UserService;
@@ -65,6 +67,7 @@ class DependencyInjection extends ServiceProvider
         $this->app->bind(CertificationServiceInterface::class, CertificationService::class);
         $this->app->bind(PersonalDetailsServiceInterface::class, PersonalDetailsService::class);
         $this->app->bind(PersonalSummaryServiceInterface::class, PersonalSummaryService::class);
+        $this->app->bind(StudentAlignmentServiceInterface::class, StudentAlignmentService::class);
 
     }
 

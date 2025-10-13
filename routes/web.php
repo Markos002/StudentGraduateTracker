@@ -31,6 +31,8 @@ Route::prefix('admin')->middleware(['auth', 'role:Admin'])->group(function () {
 
     //POST//
     Route::post('/student/add', [StudentController::class,'store'])->name('admin.student.add');
+
+    Route::put('confirmation/update/',[StudentAlignmentController::class , 'update'])->name('admin.update.confirmation');
     
 
 });

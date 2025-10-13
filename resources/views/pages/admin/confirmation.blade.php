@@ -66,14 +66,15 @@
                                 <td class="border-b border-gray-300 py-4">
                                     {{ $data->occupation }}
                                 </td>
-                                <form action="" method="POST">
+                                <form action="{{ route('admin.update.confirmation') }}" method="POST">
                                     @csrf
+                                    @method('PUT')
                                     <input type="hidden" name="job_id" value="{{ $data->job_id }}">
                                     <td class="border-b border-gray-300 py-4">
-                                        <button type="submit" name="alignment_status" value="Aligned" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
+                                        <button type="submit" name="course_alignment" value="Aligned" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
                                             Aligned
                                         </button>
-                                        <button type="submit" name="alignment_status" value="Not Aligned" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+                                        <button type="submit" name="course_alignment" value="Not Aligned" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
                                             Not Aligned
                                         </button>
                                     </td>

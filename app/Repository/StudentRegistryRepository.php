@@ -60,7 +60,6 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
             'jobs.user_id',
             'jobs.position',
             'jobs.occupation',
-            'jobs.description',
             'jobs.course_alignment',
             DB::raw("CONCAT(users.first_name, ' ', users.last_name) as full_name"),
             'users.course',
