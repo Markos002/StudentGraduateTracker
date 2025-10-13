@@ -61,7 +61,7 @@
         </div>
 
         <div class="">
-            <x-analytics.bargraph-dashboard/>
+            <x-analytics.bargraph-dashboard :data="$countAlignmentByCourse"/>
         </div>
     </div>
 </x-admin-layout>

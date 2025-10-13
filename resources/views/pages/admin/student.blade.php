@@ -89,7 +89,6 @@
                     {{ session('error') }}
                 </div>
             @endif
-
             {{-- Table --}}
             <div class="overflow-x-auto">
                 <x-table.table
@@ -101,7 +100,9 @@
                         'graduatedcourse' => $student->course_graduate,
                         'yeargraduate' => $student->batch_graduate,
                         'email' => $student->email,
-                        'contactnumber' => $student->contact_number,
+                        'contactnumber' => $student->phone,
+                        'occupation_status' => $student->occupation_status,
+                        'occupation' => $student->occupation
                     ])"
 
                     :paginator="$studentList"

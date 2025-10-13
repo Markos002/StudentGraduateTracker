@@ -88,29 +88,37 @@
     };
     let modalContent = document.getElementById('modalContent');
     
-    let employementStatus = '';
-    if (row.occupation_status === 'Unemployed') {
-        employementStatus = 'bg-yellow-300 text-black';
+    let employmentStatus = '';
+    let employmentLabel = '';
+
+    if (!row.email && !row.contactnumber) {
+        employmentLabel = 'Not Registered';
+        employmentStatus = 'bg-red-500 text-white';
+    } else if (row.occupation_status === null || row.occupation_status === 'Unemployed') {
+        employmentLabel = 'Unemployed';
+        employmentStatus = 'bg-yellow-300 text-black';
     } else if (row.occupation_status === 'Employed') {
-        employementStatus = 'bg-gray-400 text-black';
+        employmentLabel = 'Employed';
+        employmentStatus = 'bg-gray-400 text-black';
     } else {
-        employementStatus = 'text-red-800';
+        employmentLabel = 'Unregistered';
+        employmentStatus = 'bg-gray-200 text-black';
     }
+
     modalContent.innerHTML = '';    
         
     modalContent.innerHTML += `
         <div class="flex text-black items-center pb-2 gap-5">
             <span class="font-bold text-3xl">${row.fullname}</span>
-            <span class="${employementStatus} px-2 py-0.5 text-lg font-medium rounded">${row.occupation_status ?? "Not Registered"}</span>
+            <span class="${employmentStatus} px-2 py-0.5 text-lg font-medium rounded">${employmentLabel}</span>
         </div>
         <div class="mt-2 py-3 text-black border-b text-[16px]">${courseNames[row.graduatedcourse] || row.graduatedcourse}</div>
         <div class="flex justify-between py-2 text-black text-md">
             <span >Current Work:<strong>${row.occupation ?? " N/A"}</strong></span>
             <span >Year Graduated: <strong>${row.yeargraduate}</strong></span>
         </div>
-        <div class="py-2 text-black">Email Address: <strong>${row.email}</strong></div>
-        <div class="py-2 text-black">Contact Number: <strong>${row.phone ?? "N/A"}</strong></div>
-        <div class="py-2 text-black">Previous Works: <strong>${row.works || 'N/A'}</strong> </div>
+        <div class="py-2 text-black">Email Address: <strong>${row.email ?? "N/A"}</strong></div>
+        <div class="py-2 text-black">Contact Number: <strong>${row.contactnumber ?? "N/A"}</strong></div>
     `   
     document.getElementById('dataModal').classList.remove('hidden');
     document.getElementById('dataModal').classList.add('flex');
