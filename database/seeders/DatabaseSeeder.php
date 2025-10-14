@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             [
                 'last_name'      => 'Tayone',
                 'first_name'     => 'John',
-                'student_id'     => '3220231',
+                'student_id'     => '1111111',
                 'address'        => 'Cebu City, Philippines',
                 'email'          => 'john.tayone@example.com',
                 'phone'          => '09123456789',
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
             [
                 'last_name'      => 'Dela Cruz',
                 'first_name'     => 'Maria',
-                'student_id'     => '3220232',
+                'student_id'     => '0000000',
                 'address'        => 'Mandaue City, Philippines',
                 'email'          => 'maria.delacruz@example.com',
                 'phone'          => '09123456780',
@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
                 'course'         => 'BSMX',
                 'year_graduate'  => '2024',
                 'status'         => 'active',
-                'role'           => 'User',
+                'role'           => 'Admin',
                 'job' => [
                     'position'           => 'Automation Engineer',
                     'occupation'         => 'Mechatronics Specialist',
