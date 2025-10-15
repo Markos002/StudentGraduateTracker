@@ -64,7 +64,7 @@ class StudentRegistryRepository implements StudentRegistryRepositoryInterface
             DB::raw("CONCAT(users.first_name, ' ', users.last_name) as full_name"),
             'users.course',
         ])
-        ->whereNull('jobs.course_alignment')
+        ->where('jobs.course_alignment', 'none')
         ->paginate(7);
    }
 }
