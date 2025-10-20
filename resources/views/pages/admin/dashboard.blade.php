@@ -7,7 +7,7 @@
         <h1 class="text-2xl font-bold text-gray-800">Admin Dashboard</h1>
 
         <!-- Stats Section -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 text-black">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 text-black">
             <!-- Total Students -->
             <div class="flex justify-between bg-white rounded-lg shadow px-6 py-8">
                 <div class="space-y-5">
@@ -51,6 +51,18 @@
                 <div class="space-y-5">
                     <h2 class="text-lg font-semibold ">Unemployed</h2>
                     <p class="text-3xl font-bold ">{{ $employmentStats['Unemployed'] ?? '0' }}</p>
+                </div>
+                <div class="h-full place-content-center">
+                    <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[#8FE5A6]">
+                        <svg class="w-full h-full max-w-7 max-h-7" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 18.8006L18.6102 17.4108L4.96906 3.76963L1.19943 0L0 1.19943L2.5702 3.76963H1.96097C0.904331 3.76963 0.0666349 4.61685 0.0666349 5.67349L0.0571156 16.1447C0.0571156 17.2013 0.904331 18.0485 1.96097 18.0485H16.8491L18.8006 20L20 18.8006ZM19.0481 5.67349C19.0957 4.61685 18.2485 3.76963 17.1918 3.81723H13.3841V1.86578C13.3841 0.809139 12.5369 -0.0380771 11.4802 0.00951927H7.67254C6.6159 -0.0380771 5.76868 0.809139 5.76868 1.86578V2.1704L19.0481 15.4974V5.67349ZM11.4802 3.81723H7.62494V1.86578H11.4802V3.81723Z" fill="#110804"/></svg>
+                    </div>
+                </div>
+            </div>
+            <!-- Pending Confirmation -->
+            <div class="flex justify-between bg-white rounded-lg shadow px-6 py-8">
+                <div class="space-y-5">
+                    <h2 class="text-lg font-semibold ">Pending Confirmation</h2>
+                    <p class="text-3xl font-bold ">{{ $countPendingAlign}}</p>
                 </div>
                 <div class="h-full place-content-center">
                     <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[#8FE5A6]">

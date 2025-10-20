@@ -16,16 +16,16 @@
     </head>
     <body class="font-sans antialiased min-h-screen bg-[#F3F3F3] flex max-w-screen">
             @include('layouts.navigation')
-            @if(session('success')){
-                <x-sweetAlert.admin-message title="Success" message="{{ session('success') }}" type="success"/>
-            }
-            @elseif(session('error')){
-                <x-sweetAlert.admin-message title="Error" message="{{ session('error') }}" type="error"/>
-            }
-            @endif
             <!-- Page Content -->
+             @if (session('success'))
+            <x-sweetAlert.admin-message title="Success" message="{{ session('success') }}" type="success" />
+            @elseif (session('error'))
+                <x-sweetAlert.admin-message title="Error" message="{{ session('error') }}" type="error" />
+            @endif
             <main class="w-full">
                 {{ $slot }}
             </main>
     </body>
 </html>
+
+

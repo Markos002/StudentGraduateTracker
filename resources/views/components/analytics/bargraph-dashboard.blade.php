@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const formattedData = chartData.map(item => ({
         product: item.course, 
-        'In-Field Jobs': item.aligned ?? 0,
-        'Out of Field Jobs': item.not_aligned ?? 0,
+        'Aligned Jobs': item.aligned ?? 0,
+        'Not Aligned Jobs': item.not_aligned ?? 0,
     }));
 
     var option = {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         dataset: {
-            dimensions: ['product', 'In-Field Jobs', 'Out of Field Jobs'],
+            dimensions: ['product', 'Aligned Jobs', 'Not Aligned Jobs'],
             source: formattedData
         },
         grid: {
