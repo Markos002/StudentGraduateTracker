@@ -32,6 +32,13 @@ class ReportsService implements ReportsServiceInterface
         return $this->reportsRepositoryInterface->getStudentEmploymentStats();
     }
 
+    public function countPendingAlignConfirmation()
+    {
+
+        return $this->reportsRepositoryInterface->getCountPendingAlignedConfirmation();
+        
+    }
+
     public function countAlignmentByCourse()
     {
         

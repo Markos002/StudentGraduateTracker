@@ -9,6 +9,8 @@ interface ReportsRepositoryInterface
 
     public function getTotalGraduates();
 
+    public function getCountPendingAlignedConfirmation();
+
     public function getCountAlignAndNotAlingnByCourse();
 
     //Count Employed and UnEmployed

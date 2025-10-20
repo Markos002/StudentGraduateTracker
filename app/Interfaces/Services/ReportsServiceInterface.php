@@ -8,6 +8,7 @@ interface ReportsServiceInterface
     public function totalGraduates();
 
     public function registerStudents();
+    public function countPendingAlignConfirmation();
 
     public function studentEmplomentStat();
 

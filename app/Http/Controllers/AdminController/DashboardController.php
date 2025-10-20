@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\AdminController;
 
 use App\Http\Controllers\Controller;
-use App\Interfaces\Repository\StudentRegistryRepositoryInterface;
 use App\Interfaces\Services\ReportsServiceInterface;
 
 class DashboardController extends Controller
@@ -21,13 +20,15 @@ class DashboardController extends Controller
         $totalGraduates = $this->reportsServiceInterface->totalGraduates();
         $employmentStats = $this->reportsServiceInterface->studentEmplomentStat();
         $countAlignmentByCourse = $this->reportsServiceInterface->countAlignmentByCourse();
+        $countPendingAlign = $this->reportsServiceInterface->countPendingAlignConfirmation();
 
     
         return view('pages.admin.dashboard', compact(
             'totalStudents',
             'totalGraduates',
             'employmentStats',
-            'countAlignmentByCourse'
+            'countAlignmentByCourse',
+            'countPendingAlign'
          ));
         
     }

@@ -30,6 +30,15 @@ class ReportsRepository implements ReportsRepositoryInterface
 
     }
 
+    public function getCountPendingAlignedConfirmation()
+    {
+
+        $select = 'none';
+
+        return Job::where('course_alignment', $select)
+                   ->count();
+    }
+
     //Count Employed and UnEmployed
     public function getStudentEmploymentStats()
     {
